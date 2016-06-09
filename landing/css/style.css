@@ -1,0 +1,88 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+html,body {
+	height: 100%;
+}
+
+body {
+	background:transparent url(../images/bg-pattern.jpg) 0 0 repeat;
+}
+
+#wrapper {
+	height:100%;
+	margin: auto;
+	text-align:center;
+}
+
+header {
+	height:120px
+}
+
+.landing {
+	width: 960px;
+	height: 400px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.landing .social,
+.landing .corporativo{
+	width: 480px;
+	height: 500px;
+	top: 0px;
+	position: absolute;
+}
+
+.landing a div{
+	z-index: 10;
+}
+
+.landing .social h2,
+.landing .corporativo h2{
+	position: absolute;
+	width: 260px;
+	opacity: 0.65;
+}
+
+.landing .social{
+	left: 0px;
+}
+
+.landing .social h2{
+	top: 150px;
+	left: 120px;
+}
+
+.landing .corporativo {
+	text-align: right;
+	right: 0;
+}
+
+.landing .corporativo h2{
+	bottom: 100px;
+	right: 140px;
+}
+
+.landing .social-img,
+.landing .corporativo-img{
+    position: absolute;
+    top: 0;
+    display: block;
+    z-index: 1;
+}
+
+.landing .social-img{
+	width: 380px;
+    height: 500px;
+	background: url(../images/social-bg.png) -100px 0 no-repeat;
+    left: 100px;
+}
+
+.landing .corporativo-img{
+	background: url(../images/corporativo-bg.png) 0 0 no-repeat;
+	width: 100%;
+    height: 500px;
+}
