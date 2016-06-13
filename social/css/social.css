@@ -722,9 +722,7 @@ footer ul.social li:hover {opacity: 0.6 !important;}
 		padding-left:30px;
 		margin-left:0;
 	}
-	.contact .main-form label {
-		margin-left: 30px !important;
-	}
+	
 	.contact .main-form .bt-send {
 		float:none;
 		margin:0 auto !important;
