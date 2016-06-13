@@ -185,7 +185,7 @@
 						<div class="contact">
 							<p>
 								<a href="tel:+551936411244">(19) 3461.1244</a>
-								<a href="mailto:contato@gilprodducoes.com.br" style="font-size: 10px;">contato@gilprodducoes.com.br</a>
+								<a href="mailto:contato@gilproducoes.com.br" style="font-size: 10px;">contato@gilproducoes.com.br</a>
 							</p>
 						</div>
 					</div>

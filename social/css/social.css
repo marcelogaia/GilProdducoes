@@ -353,8 +353,16 @@ li {
 	font-weight: 400;
 }
 
+.accordion-section-title img{
+    margin: 8px 10px 2px 0;
+    float: left;
+    height:40px;
+    width:40px;
+}
+
 .accordion-agil .accordion-section-title:hover {background: #ababab url(../img/arrow-down.png) center right no-repeat !important;}
 .accordion-agil .accordion-section-title.active {background: #ababab url(../img/arrow-up.png) center right no-repeat !important;}
+
 
 .accordion-section:last-child .accordion-section-title {
 	border-bottom:none;
@@ -410,7 +418,7 @@ li {
 
 /* orçamentos */
 
-.radio-items input {display: block; width: 25px !important; float: left; margin: 3px 0px !important;}
+.radio-items input {display: block; width: 15px !important; float: left; margin: 3px 5	px 3px 0 !important;}
 .radio-items label {display: block; float: left;}
 
 

@@ -137,14 +137,18 @@
     <script type="text/javascript" charset="utf-8" src="js/jquery.tubular.1.0.js"></script>
     <script type="text/javascript">
     	$('document').ready(function() {
-    		var options = { videoId: 'R7ATzDxyKp8', start: 0 };
+    		var options = { 
+				videoId: 'R7ATzDxyKp8', 
+	    		// f-UGhWj1xww cool sepia hd
+	    		// 49SKbS7Xwf4 beautiful barn sepia
+				start: 0,
+	            rel: 0,
+	            autoplay: 1,
+	            html5: 1
+	        };
+    		
     		$('#wrapper').tubular(options);
-    		// f-UGhWj1xww cool sepia hd
-    		// 49SKbS7Xwf4 beautiful barn sepia
-    	});
-    </script>
-    <script>
-    	$(document).ready(function(){
+
     		$(".bt-news").click(function(){
     			$(".news-box").animate({width: 'toggle'});
     		});
