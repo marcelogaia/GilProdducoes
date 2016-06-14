@@ -39,7 +39,7 @@ li {
 }
 
 .navbar>.container-fluid .navbar-brand {
-	margin: 5px 20px 0 0;
+	margin: 5px 20px 0 5px;
 }
 
 .navbar li a {
@@ -659,6 +659,89 @@ footer ul.social li:hover {opacity: 0.6 !important;}
 	margin-left: 18%;
 }
 
+.nav .news{
+	display: none;
+}
+
+.nav .news form{
+    width: 260px;
+    margin: 0 auto;
+}
+
+.nav .news form img {
+    width: 30px;
+    float: left;
+    margin-top: 8px;	
+}
+
+.nav .news form input, .nav .news form button{
+    border: none;
+    background-color: #999;
+    padding: 10px;
+    color: #e1e1e1;
+    text-transform: uppercase;
+    float: left;
+}
+
+.nav .news form input{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-left: 10px;
+}
+
+.nav .news form input::-webkit-input-placeholder {
+  color: #e1e1e1;
+}
+
+.nav .news form input:-moz-placeholder { /* Firefox 18- */
+  color: #e1e1e1;
+}
+
+.nav .news form input::-moz-placeholder { /* Firefox 19+ */
+  color: #e1e1e1;
+}
+
+.nav .news form input:-ms-input-placeholder { /* IE 10+ */
+  color: #e1e1e1;
+}
+
+.nav .news form input::-ms-input-placeholder { /* Edge */
+  color: #e1e1e1;
+}
+
+.nav .news form button{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left: 1px #e1e1e1 solid;
+}
+
+
+#video {
+    height: 900px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.prevent-hover {
+    z-index: 3;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.outerplayer {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+
 @media screen and (max-device-width: 468px) and (orientation: portrait){
 
 	footer ul.social {
@@ -722,7 +805,7 @@ footer ul.social li:hover {opacity: 0.6 !important;}
 		padding-left:30px;
 		margin-left:0;
 	}
-	
+
 	.contact .main-form .bt-send {
 		float:none;
 		margin:0 auto !important;
@@ -757,7 +840,7 @@ footer ul.social li:hover {opacity: 0.6 !important;}
 	}
 
 	.navbar-fixed-top .navbar-collapse{
-		max-height: 387px;
+		max-height: none;
 	}
 }
 
@@ -929,6 +1012,16 @@ footer ul.social li:hover {opacity: 0.6 !important;}
 		width: calc(100% - 20px);
 		margin: 15px 10px 0;
 		font-size:1.5em;
+	}
+
+	.nav .news{
+		display: block;
+	}
+
+	.services h4 {
+		margin-bottom: 30px;
+		margin-top: 30px;
+		padding:0 15px;
 	}
 }
 

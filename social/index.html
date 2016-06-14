@@ -85,6 +85,13 @@
 					<li><a href="duvidas.html">Dúvidas</a></li>
 					<li><a href="contato.php">Contato</a></li>
 					<li><a href="agil.html" class="red">Ágil Locações</a></li>
+					<li class="news">
+						<form action="#" method="post">
+							<img src="img/envelope-icon.png" alt="">
+							<input type="text" placeholder="email">
+							<button type="submit">OK</button>
+						</form>
+					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="corporativo"><a href="http://gilprodducoes.com.br/em-breve/">CORPORATIVO</a></li>
@@ -93,7 +100,12 @@
 		</div><!-- /.container-fluid -->
 	</nav>
 
-    <div id="wrapper" class="container-fluid" role="main">
+    <div id="video" role="main">
+
+        <div class="outerplayer">
+            <div id="player"></div>
+        </div>
+        <div class="prevent-hover"></div>
 
     </div> <!-- /container -->
 
@@ -109,7 +121,7 @@
 			<li class="col-xs-3 col-sm-4 controls">
 				<center>
 					<p id="video-controls">
-						<a href="#" class="tubular-play"><img src="img/bt-play.png" /></a>&nbsp; &nbsp;<a href="#" class="tubular-pause"><img src="img/bt-pause.png" /></a>&nbsp; &nbsp;<a href="#" class="tubular-mute"><img src="img/bt-sound.png" /></a>
+						<a href="#" class="tubular-play" onclick="play()"><img src="img/bt-play.png" /></a>&nbsp; &nbsp;<a href="#" class="tubular-pause" onclick="pause()"><img src="img/bt-pause.png" /></a>&nbsp; &nbsp;<a href="#" class="tubular-mute" onclick="mute()"><img src="img/bt-sound.png" /></a>
 					</p>
 				</center>
 			</li>
@@ -136,18 +148,105 @@
     <!-- jquery tubular -->
     <script type="text/javascript" charset="utf-8" src="js/jquery.tubular.1.0.js"></script>
     <script type="text/javascript">
+        var tag = document.createElement('script');
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        var ScriptTag = document.getElementsByTagName('script')[0];
+       	ScriptTag.parentNode.insertBefore(tag,ScriptTag);
+
+        var player;
+        var muted = false;
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                width:         '100%',
+                height:         '100%',
+                playerVars:     {
+                    autoplay:       1,
+                    controls:       0,
+                    disablekb:      1,
+                    enablejsapi:    1,
+                    fs:             0,
+                    loop:           1,
+                    rel:            0,
+                    showinfo:       0,
+                    iv_load_policy: 3,
+                    modestbranding: 1
+                },
+                videoId:        'R7ATzDxyKp8',
+
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+            // f-UGhWj1xww cool sepia hd
+            // 49SKbS7Xwf4 beautiful barn sepia
+        }
+
+        function onPlayerReady(event) {
+
+    		play();
+
+
+        	$(window).resize(function(){
+        		var aspectRatio = 16/9;
+        		var windowHeight = $(window).innerHeight()
+        		var windowWidth = $(window).innerWidth();
+
+        		if(windowWidth/windowHeight <= aspectRatio) {
+
+	        		$('#video').css('height',windowHeight);
+
+	        		$('#video iframe').css('height',"100%");
+	        		$('#video iframe').css('width', windowHeight * aspectRatio);
+
+	        		$('#video iframe').css('margin-left', windowWidth/2  - ((windowHeight * aspectRatio)/2));
+	        		$('#video iframe').css('margin-top', "auto");
+	
+        		} else {
+	        		$('#video').css('height',windowHeight);
+	        		$('#video iframe').css('height', windowWidth / aspectRatio);
+
+	        		$('#video iframe').css('width', windowWidth);
+
+	        		$('#video iframe').css('margin-top', windowHeight/2 - ((windowWidth / aspectRatio)/2));
+	        		$('#video iframe').css('margin-left', 0);
+        		}
+
+        	}).trigger('resize');
+        }
+
+        function onPlayerStateChange(event) {
+        	if(event.data == 3) {
+        		play();
+        	} else {
+        		console.log(event.data);
+        	}
+        }
+
+        function stopVideo() {
+
+        }
+
+        function play() {
+            player.playVideo();
+        }
+
+        function pause() {
+            player.pauseVideo();
+        }
+
+        function mute() {
+            if(!muted)
+                player.mute();
+            else
+                player.unMute();
+            muted = !muted;
+        }
+
+
     	$('document').ready(function() {
-    		var options = { 
-				videoId: 'R7ATzDxyKp8', 
-	    		// f-UGhWj1xww cool sepia hd
-	    		// 49SKbS7Xwf4 beautiful barn sepia
-				start: 0,
-	            rel: 0,
-	            autoplay: 1,
-	            html5: 1
-	        };
-    		
-    		$('#wrapper').tubular(options);
 
     		$(".bt-news").click(function(){
     			$(".news-box").animate({width: 'toggle'});
