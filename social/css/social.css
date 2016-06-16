@@ -664,14 +664,14 @@ footer ul.social li:hover {opacity: 0.6 !important;}
 }
 
 .nav .news form{
-    width: 260px;
+    width: auto;
     margin: 0 auto;
+    white-space: nowrap;
 }
 
 .nav .news form img {
     width: 30px;
-    float: left;
-    margin-top: 8px;	
+    display: inline-block;
 }
 
 .nav .news form input, .nav .news form button{
@@ -680,7 +680,7 @@ footer ul.social li:hover {opacity: 0.6 !important;}
     padding: 10px;
     color: #e1e1e1;
     text-transform: uppercase;
-    float: left;
+    display: inline-block;
 }
 
 .nav .news form input{

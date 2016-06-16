@@ -142,6 +142,13 @@ if($action == "submit"){
 					<li><a href="duvidas.html">Dúvidas</a></li>
 					<li><a href="contato.php">Contato</a></li>
 					<li><a href="agil.html" class="red">Ágil Locações</a></li>
+					<li class="news">
+						<form action="#" method="post">
+							<img src="img/envelope-icon.png" alt="">
+							<input type="text" placeholder="email">
+							<button type="submit">OK</button>
+						</form>
+					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="corporativo"><a href="http://gilprodducoes.com.br/em-breve/">CORPORATIVO</a></li>
