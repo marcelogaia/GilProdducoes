@@ -193,7 +193,8 @@
 
         	$(window).resize(function(){
         		var aspectRatio = 16/9;
-        		var windowHeight = window.innerHeight ? window.innerHeight : $(window).height();
+        		
+        		var windowHeight = document.documentElement.clientHeight ? document.documentElement.clientHeight : $(window).height();
         		var windowWidth = window.innerWidth ? window.innerWidth : $(window).width();;
 
         		if(windowWidth/windowHeight <= aspectRatio) {
