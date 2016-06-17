@@ -1042,6 +1042,10 @@ footer ul.social li:hover {opacity: 0.6 !important;}
 		float: right;
 		width: 200px;
 	}
+
+	.prevent-hover {
+		display: none;
+	}
 }
 
 @media screen and (min-width: 768px) {
