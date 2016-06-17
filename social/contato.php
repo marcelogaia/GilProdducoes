@@ -1,37 +1,67 @@
 <?php
 	$sent = false;
 
-
 	$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
 
-	$name	= isset($_REQUEST['name']) ? $_REQUEST['name'] : "";
-	$email 	= isset($_REQUEST['email']) ? $_REQUEST['email'] : "";
-	$phone	= isset($_REQUEST['phone']) ? $_REQUEST['phone'] : "";
-	$company= isset($_REQUEST['company']) ? $_REQUEST['company'] : "";
-	$message= isset($_REQUEST['message']) ? $_REQUEST['message'] : "";
+	require "../includes/phpmailer/PHPMailerAutoload.php";
 
 	if($action == "submit"){
 
-		if(($name!="")&&($email!="")&&($phone!="")&&($company!="")&&($message!="")){
+		$name	= isset($_REQUEST['name']) ? $_REQUEST['name'] : "";
+		$email 	= isset($_REQUEST['email']) ? $_REQUEST['email'] : "";
+		$phone	= isset($_REQUEST['phone']) ? $_REQUEST['phone'] : "";
+		$company= isset($_REQUEST['company']) ? $_REQUEST['company'] : "";
+		$message= isset($_REQUEST['message']) ? $_REQUEST['message'] : "";
 
-			$headers = array("From: {$name}<{$email}",
-				"MIME-Version: 1.0",
-				"Content-type: text/html; charset=iso-8859-1",
-			    "Reply-To: {$email}",
-			    "X-Mailer: PHP/" . PHP_VERSION
-			);
+		if(($name!="")&&($email!="")&&($phone!="")&&($message!="")){
 
-			$headers = implode("\r\n", $headers);
-
-			$subject="Mensagem enviada através do formulário de contato Gil Prodducoes";
-
-			$text = "<b>Nome:</b> {$name}
+			$body = "<b>Nome:</b> {$name}
 					<br><b>Email:</b> {$email}
 					<br><b>Telefone:</b> {$phone}
 					<br><b>Empresa:</b> {$company}
 					<br><b>Mensagem:</b> {$message}";
 
-			$sent = mail("edy.castro@outlook.com", $subject, $text, $headers);
+			$altbody = "Nome: {$name} \n\r
+						Email: {$email} \n\r
+						Telefone: {$phone} \n\r
+						Empresa: {$company} \n\r
+						Mensagem: {$message}";
+
+			$mail = new PHPMailer;
+
+			//$mail->SMTPDebug = 3;               // Enable verbose debug output
+
+			$mail->isSMTP();                      // Set mailer to use SMTP
+			$mail->Host = '';  					  // Specify main and backup SMTP servers
+			$mail->SMTPAuth = true;               // Enable SMTP authentication
+			$mail->Username = '';          		  // SMTP username
+			$mail->Password = '';                 // SMTP password
+			$mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted
+			$mail->Port = 587;                    // TCP port to connect to
+			$mail->CharSet = "UTF-8";
+
+			$mail->setFrom('', 'Gil Produções - Orçamentos');
+			$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');     // Add a recipient
+			$mail->addReplyTo($email,$name);
+
+			// $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+			// $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+			
+			$mail->isHTML(true);                                  // Set email format to HTML
+
+			$mail->Subject = $subject;
+			$mail->Body    = $body;
+			$mail->AltBody = $altbody;
+
+			$sent = 0;
+
+			if(!$mail->send()) {
+			    echo '<!-- Message could not be sent. Mailer Error: ' . $mail->ErrorInfo . '-->';
+			    $sent = 1;
+			} else {
+			    echo '<!-- Message has been sent -->';
+			    $sent = 2;
+			}
 		}
 	}
 ?>
@@ -161,17 +191,17 @@
 					<input type="hidden" name="action" value="submit" />
 					<div class="col-sm-6">
 						<label>Nome:</label><br />
-						<input type="text" name="name" value="" /><br />
+						<input type="text" name="name" value="" required /><br />
 						<label>E-mail:</label><br />
-						<input type="text" name="email" value="" /><br />
+						<input type="text" name="email" value="" required /><br />
 						<label>Telefone:</label><br />
-						<input type="text" name="phone" value="" /><br />
+						<input type="text" name="phone" value="" required /><br />
 						<label>Empresa/Organização:</label><br />
 						<input type="text" name="company" value="" />
 					</div>
 					<div class="col-sm-6">
 						<label style="margin-left: 10px;">Mensagem:</label><br />
-						<textarea name="message"></textarea><br />
+						<textarea name="message" required></textarea><br />
 						<input type="submit" class="bt-send" value=" " />
 					</div>
 				</form>

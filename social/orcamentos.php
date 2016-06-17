@@ -4,53 +4,91 @@ $sent = false;
 
 $action 	= isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
 
-$name		= isset($_REQUEST['name']) ? $_REQUEST['name'] : "";
-$email 		= isset($_REQUEST['email']) ? $_REQUEST['email'] : "";
-$phone		= isset($_REQUEST['phone']) ? $_REQUEST['phone'] : "";
-$countrycity= isset($_REQUEST['country-city']) ? $_REQUEST['country-city'] : "";
-$howfoundus	= isset($_REQUEST['howfoundus']) ? $_REQUEST['howfoundus'] : "";
-$eventdate	= isset($_REQUEST['event-date']) ? $_REQUEST['event-date'] : "";
-$eventtype	= isset($_REQUEST['event-type']) ? $_REQUEST['event-type'] : "";
-$eventtypeother	= isset($_REQUEST['event-type-other']) ? $_REQUEST['event-type-other'] : "";
-
-$equiptext = "<ul>";
-
-if(isset($_REQUEST['equipment'])) {
-	$equipment	=  $_REQUEST['equipment'];
-
-	foreach($equipment as $eq) {
-		$equiptext .= "<li>{$eq}</li>";
-	}
-}
-
-$equiptext .= "</ul>";
-
 if($action == "submit"){
+
+	require "../includes/phpmailer/PHPMailerAutoload.php";
+
+	$name		= isset($_REQUEST['name']) ? $_REQUEST['name'] : "";
+	$email 		= isset($_REQUEST['email']) ? $_REQUEST['email'] : "";
+	$phone		= isset($_REQUEST['phone']) ? $_REQUEST['phone'] : "";
+	$countrycity= isset($_REQUEST['country-city']) ? $_REQUEST['country-city'] : "";
+	$howfoundus	= isset($_REQUEST['howfoundus']) ? $_REQUEST['howfoundus'] : "";
+	$eventdate	= isset($_REQUEST['event-date']) ? $_REQUEST['event-date'] : "";
+	$eventtype	= isset($_REQUEST['event-type']) ? $_REQUEST['event-type'] : "";
+	$eventtypeother	= isset($_REQUEST['event-type-other']) ? $_REQUEST['event-type-other'] : "";
+
+	$equiptext = "<ul>";
+
+	if(isset($_REQUEST['equipment'])) {
+		$equipment	=  $_REQUEST['equipment'];
+
+		foreach($equipment as $eq) {
+			$equiptext .= "<li>{$eq}</li>";
+		}
+	}
+
+	$equiptext .= "</ul>";
 
 	if(($name!="")&&($email!="")&&($phone!="")){
 
-		$headers = array("From: {$name}<{$email}",
-			"MIME-Version: 1.0",
-			"Content-type: text/html; charset=iso-8859-1",
-			"Reply-To: {$email}",
-			"X-Mailer: PHP/" . PHP_VERSION
-			);
-
-		$headers = implode("\r\n", $headers);
-
 		$subject="Mensagem enviada através do formulário de orcamento Gil Prodducoes";
 
-		$text = "<b>Nome:</b> {$name}
-		<br><b>Email:</b> {$email}
-		<br><b>Telefone:</b> {$phone}
-		<br><b>País/Cidade:</b> {$countrycity}
-		<br><b>Como nos encontrou?:</b> {$howfoundus}
-		<br><b>Quando será a data do evento?:</b> {$eventdate}
-		<br><b>Que tipo de evento será realizado?:</b> {$eventtype}
-		<br><b>Se escolheu 'outro', descreva qual:</b> {$eventtypeother}
-		<br><b>Quais de nossos produtos e serviços gostaria de contar com?:</b><br> {$equiptext}";
+		$body = "<b>Nome:</b> {$name}
+				<br><b>Email:</b> {$email}
+				<br><b>Telefone:</b> {$phone}
+				<br><b>País/Cidade:</b> {$countrycity}
+				<br><b>Como nos encontrou?:</b> {$howfoundus}
+				<br><b>Quando será a data do evento?:</b> {$eventdate}
+				<br><b>Que tipo de evento será realizado?:</b> {$eventtype}
+				<br><b>Se escolheu 'outro', descreva qual:</b> {$eventtypeother}
+				<br><b>Quais de nossos produtos e serviços gostaria de contar com?:</b><br> {$equiptext}";
 
-		$sent = mail("edy.castro@outlook.com", $subject, $text, $headers);
+		$altbody = "Nome: {$name}
+				\r\nEmail: {$email}
+				\r\nTelefone: {$phone}
+				\r\nPaís/Cidade: {$countrycity}
+				\r\nComo nos encontrou?: {$howfoundus}
+				\r\nQuando será a data do evento?: {$eventdate}
+				\r\nQue tipo de evento será realizado?: {$eventtype}
+				\r\nSe escolheu 'outro', descreva qual: {$eventtypeother}
+				\r\nQuais de nossos produtos e serviços gostaria de contar com?:\r\n {$equiptext}";
+
+
+			$mail = new PHPMailer;
+
+			//$mail->SMTPDebug = 3;               // Enable verbose debug output
+
+			$mail->isSMTP();                      // Set mailer to use SMTP
+			$mail->Host = '';  					  // Specify main and backup SMTP servers
+			$mail->SMTPAuth = true;               // Enable SMTP authentication
+			$mail->Username = '';          		  // SMTP username
+			$mail->Password = '';                 // SMTP password
+			$mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted
+			$mail->Port = 587;                    // TCP port to connect to
+			$mail->CharSet = "UTF-8";
+
+			$mail->setFrom('', 'Gil Produções - Orçamentos');
+			$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');     // Add a recipient
+			$mail->addReplyTo($email,$name);
+
+			// $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+			// $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+			
+			$mail->isHTML(true);                                  // Set email format to HTML
+
+			$mail->Subject = $subject;
+			$mail->Body    = $body;
+			$mail->AltBody = $altbody;
+
+			$sent = 0;
+
+			if(!$mail->send()) {
+			    echo '<!-- Message could not be sent. Mailer Error: ' . $mail->ErrorInfo . '-->';
+			    $sent = 1;
+			} else {
+			    echo '<!-- Message has been sent -->';
+			    $sent = 2;
+			}
 	}
 }
 ?>
