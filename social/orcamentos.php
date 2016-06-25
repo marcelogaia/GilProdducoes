@@ -6,7 +6,7 @@ $action 	= isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
 
 if($action == "submit"){
 
-	require "../includes/phpmailer/PHPMailerAutoload.php";
+	require "../includes/phpmailer/PHPMailerAutoload";
 
 	$name		= isset($_REQUEST['name']) ? $_REQUEST['name'] : "";
 	$email 		= isset($_REQUEST['email']) ? $_REQUEST['email'] : "";
@@ -152,34 +152,34 @@ if($action == "submit"){
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html">Gil Produções</a>
+				<a class="navbar-brand" href="./">Gil Produções</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="quem-somos.html">Quem Somos</a></li>
+					<li><a href="quem-somos">Quem Somos</a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Serviços <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="servicos-aniversarios.html">Aniversários</a></li>
-							<li><a href="servicos-casamentos.html">Casamentos</a></li>
-							<li><a href="servicos-outros.html">Outros</a></li>
+							<li><a href="servicos-aniversarios">Aniversários</a></li>
+							<li><a href="servicos-casamentos">Casamentos</a></li>
+							<li><a href="servicos-outros">Outros</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Portfólio <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="portfolio-aniversarios-15-anos.html">Aniversários</a></li>
-							<li><a href="portfolio-casamentos.html">Casamentos</a></li>
-							<li><a href="portfolio-outros.html">Outros</a></li>
+							<li><a href="portfolio-aniversarios-15-anos">Aniversários</a></li>
+							<li><a href="portfolio-casamentos">Casamentos</a></li>
+							<li><a href="portfolio-outros">Outros</a></li>
 						</ul>
 					</li>
 
-					<li><a href="orcamentos.php">Orçamentos</a></li>
-					<li><a href="duvidas.html">Dúvidas</a></li>
-					<li><a href="contato.php">Contato</a></li>
-					<li><a href="agil.html" class="red">Ágil Locações</a></li>
+					<li><a href="orcamentos">Orçamentos</a></li>
+					<li><a href="duvidas">Dúvidas</a></li>
+					<li><a href="contato">Contato</a></li>
+					<li><a href="agil" class="red">Ágil Locações</a></li>
 					<li class="news">
 						<form action="#" method="post">
 							<img src="img/envelope-icon.png" alt="">
@@ -189,7 +189,7 @@ if($action == "submit"){
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li class="corporativo"><a href="http://gilprodducoes.com.br/em-breve/">CORPORATIVO</a></li>
+					<li class="corporativo"><a href="../corporativo/">CORPORATIVO</a></li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
@@ -213,7 +213,7 @@ if($action == "submit"){
 				<br />
 				<h3>Formulário de solicitação de orçamento</h3><br />
 				<p>Utilize este formulário para fazer um resumo rápido sobre seu projeto</p>
-				<p style="font-size: 12px; line-height: 18px;"><em><strong>Dúvidas?</strong> Entre em <a href="contato.html"><u>contato</u></a>.</em><br />
+				<p style="font-size: 12px; line-height: 18px;"><em><strong>Dúvidas?</strong> Entre em <a href="contato"><u>contato</u></a>.</em><br />
 					<em><strong>Privacidade:</strong> Nenhum dado deste, ou qualquer formulário, será divulgado ou usado para outros fins.</em></p>
 					<br />
 					<?php if($sent){ ?>

@@ -53,7 +53,7 @@
 	<img id="social-link" src="media/img/social-link-gray.png" data-status="open" usemap="#imgmap">
 	<map name="imgmap" id="imgmap">
 		<area shape="circle" coords="17,24,15" class="close" href="javascript:void(0)" alt="close">
-		<area shape="rect" coords="38,0,156,47" href="#social" alt="Social">
+		<area shape="rect" coords="38,0,156,47" href="../social" alt="Social">
 	</map>
 
     <section id="contato">
