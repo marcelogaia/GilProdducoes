@@ -1,0 +1,9 @@
+RewriteEngine On
+
+RewriteRule ^trabalhos jobs.html [NC,L]
+RewriteRule ^quem-somos about.html [NC,L]
+RewriteRule ^servicos services.html [NC,L]
+RewriteRule ^orcamento budget.php [NC,L]
+RewriteRule ^agil-locacoes agil.html [NC,L]
+RewriteRule ^documentarios documentary.html [NC,L]
+RewriteRule ^contato contact.php [NC,L]

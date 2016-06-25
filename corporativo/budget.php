@@ -33,17 +33,17 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <h1 class="logo"><a class="navbar-brand" href="index.html">Gil Produções</a></h1>
+                    <h1 class="logo"><a class="navbar-brand" href="./">Gil Produções</a></h1>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="row">
-                        <li><a href="jobs.html">Trabalhos</a></li>
-                        <li><a href="about.html">Quem somos</a></li>
-                        <li><a href="services.html">Serviços</a></li>
-                        <li><a href="budget.html" class="active">ORÇAMENTO</a></li>
-                        <li><a href="agil.html">Ágil LOCAÇÕES</a></li>
-                        <li><a href="documentary.html">DocumentÁrios</a></li>
-                        <li><a href="contact.html" class="last">Contato</a></li>
+                        <li><a href="trabalhos">Trabalhos</a></li>
+                        <li><a href="quem-somos">Quem somos</a></li>
+                        <li><a href="servicos">Serviços</a></li>
+                        <li><a href="orcamento" class="active">ORÇAMENTO</a></li>
+                        <li><a href="agil-locacoes">Ágil LOCAÇÕES</a></li>
+                        <li><a href="documentarios">DocumentÁrios</a></li>
+                        <li><a href="contato" class="last">Contato</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -64,7 +64,7 @@
 			</header>
 
 			<p class="legend">
-				<strong>Dúvidas?</strong> Entre em <a href="contact.html">contato</a>.<br>
+				<strong>Dúvidas?</strong> Entre em <a href="contato">contato</a>.<br>
 				<strong>Privacidade</strong>: Nenhum dado deste, ou qualquer formulário, será divulgado ou usado para outros fins.
 			</p>
 		</div>
