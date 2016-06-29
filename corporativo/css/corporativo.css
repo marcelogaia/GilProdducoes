@@ -532,7 +532,7 @@ body.about #sobre-nos {
     padding: 0; }
     body.about #sobre-nos article p {
       border: none;
-      font-size: 1.4em;
+      font-size: 1.2em;
       color: #808080;
       padding: 15px 0; }
   body.about #sobre-nos .row {
@@ -540,31 +540,31 @@ body.about #sobre-nos {
     position: relative;
     height: 100%; }
     body.about #sobre-nos .row h2 {
-      text-align: center;
+      text-align: right;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-end;
       font-weight: 900;
       color: #808080;
-      font-size: 2.2em; }
+      font-size: 2em; }
     body.about #sobre-nos .row p {
       border-left: 2px #bb5558 solid;
       padding-left: 20px;
-      font-size: 2em; }
+      font-size: 1.3em; }
 
 body.documentary #documentarios {
   background-image: url(../media/img/documentary-bg.png);
-  height: 1056px; }
+  height: 650px; }
   body.documentary #documentarios header {
     margin-top: 90px; }
   body.documentary #documentarios p {
-    margin-top: 339px;
+    margin-top: 40px;
     color: white;
     font-size: 1.4em;
     text-align: center;
     padding: 0 12%; }
 body.documentary .como-patrocinar h2 {
-  font-size: 4em;
+  font-size: 3em;
   text-align: center;
   margin: 70px 0; }
 body.documentary .como-patrocinar ol li {
@@ -584,10 +584,11 @@ body.documentary .como-patrocinar ol li {
     -o-border-radius: 50%;
     border-radius: 50%; }
   body.documentary .como-patrocinar ol li article h3 {
-    font-size: 2em;
-    font-weight: 600; }
+    font-size: 1.6em;
+    font-weight: 600;
+    padding-top: 20px; }
   body.documentary .como-patrocinar ol li article p {
-    font-size: 1.4em; }
+    font-size: 1.2em; }
   body.documentary .como-patrocinar ol li article:nth-child(even) {
     padding-left: 30px; }
   body.documentary .como-patrocinar ol li article:nth-child(odd) {
@@ -598,9 +599,10 @@ body.documentary .trabalhos {
   align-items: center;
   margin-bottom: 10px; }
   body.documentary .trabalhos h2 {
-    font-size: 3.5em; }
+    font-size: 2.8em; }
   body.documentary .trabalhos p {
-    font-size: 2.45em; }
+    font-size: 1.9em;
+    font-weight: 600; }
   body.documentary .trabalhos h2, body.documentary .trabalhos p {
     text-align: center; }
 body.documentary .trabalhos:nth-child(even) h2 {
@@ -877,10 +879,16 @@ body.budget #accordion .panel {
   body.documentary #documentarios p {
     font-size: 1.8em; }
   body.documentary .como-patrocinar ol li span {
-    height: 190px;
-    width: 190px;
-    font-size: 11em;
-    line-height: 190px; }
+    height: 120px;
+    width: 120px;
+    font-size: 7em;
+    line-height: 120px; }
+  body.documentary .como-patrocinar ol li span:nth-child(even) {
+    margin-right: 15px; }
+  body.documentary .como-patrocinar ol li span:nth-child(odd) {
+    margin-left: 15px; }
+  body.documentary .como-patrocinar ol li article {
+    width: calc(100% - 135px); }
 
   body.agil #equips h2 {
     font-size: 4em; }

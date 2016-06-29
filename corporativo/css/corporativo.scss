@@ -810,7 +810,7 @@ body.about {
    			 	padding: 0;
 	    	p {
 			    border: none;
-			    font-size: 1.4em;
+			    font-size: 1.2em;
 			    color: #808080;
 			    padding: 15px 0;
 			}
@@ -822,19 +822,19 @@ body.about {
 			height: 100%;
 
 			h2{
-				text-align: center;
+				text-align: right;
 			    display:flex;
 			    align-items: center;
-			    justify-content: center;
+			    justify-content: flex-end;
 			    font-weight: 900;
 			    color:#808080;
-				font-size:2.2em;
+				font-size:2em;
 			}
 
 			p {
 				border-left: 2px #bb5558 solid;
 				padding-left: 20px;
-				font-size:2em;
+				font-size: 1.3em;
 			}
 		}
 	}
@@ -843,14 +843,14 @@ body.about {
 body.documentary {
 	#documentarios {
 		background-image: url(../media/img/documentary-bg.png);
-		height: 1056px;
+		height: 650px;
 
 		header {
 			margin-top:90px;
 		}
 
 		p {
-			margin-top: 339px;
+			margin-top: 40px;
 			color: white;
 			font-size: 1.4em;
 			text-align: center;
@@ -859,7 +859,7 @@ body.documentary {
 	}
 	.como-patrocinar{
 		h2 {
-			font-size:4em;
+			font-size:3em;
 			text-align: center;
 			margin: 70px 0;
 		}
@@ -888,12 +888,13 @@ body.documentary {
 				article {
 
 					h3 {
-						font-size: 2em;
+						font-size: 1.6em;
 						font-weight: 600;
+						padding-top:20px;
 					}
 
 					p {
-						font-size: 1.4em;
+						font-size: 1.2em;
 					}
 				}
 
@@ -910,11 +911,12 @@ body.documentary {
 	    margin-bottom: 10px;
 
 		h2 {
-			font-size: 3.5em;
+			font-size: 2.8em;
 		}
 
 		p{
-			font-size: 2.45em;
+			font-size: 1.9em;
+			font-weight: 600;
 		}
 
 	    h2,p{
@@ -1347,11 +1349,20 @@ body.budget{
 			}
 		} 
 
-		.como-patrocinar ol li span {
-		    height: 190px;
-		    width: 190px;
-		    font-size: 11em;
-		    line-height: 190px;
+		.como-patrocinar ol li {
+			span {
+			    height: 120px;
+			    width: 120px;
+			    font-size: 7em;
+			    line-height: 120px;
+		    }
+
+			span:nth-child(even) {margin-right: 15px;}
+			span:nth-child(odd) {margin-left: 15px;}
+
+			article {
+				width: calc(100% - 135px);
+			}
 		}
 	} 
 
