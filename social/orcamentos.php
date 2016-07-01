@@ -6,7 +6,7 @@ $action 	= isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
 
 if($action == "submit"){
 
-	require "../includes/phpmailer/PHPMailerAutoload";
+	require "../includes/phpmailer/PHPMailerAutoload.php";
 
 	$name		= isset($_REQUEST['name']) ? $_REQUEST['name'] : "";
 	$email 		= isset($_REQUEST['email']) ? $_REQUEST['email'] : "";
@@ -73,7 +73,7 @@ if($action == "submit"){
 
 			// $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
 			// $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-			
+
 			$mail->isHTML(true);                                  // Set email format to HTML
 
 			$mail->Subject = $subject;
