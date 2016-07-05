@@ -3,9 +3,9 @@
 
 	$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
 
-	require "../includes/phpmailer/PHPMailerAutoload.php";
-
 	if($action == "submit"){
+
+		require "../includes/phpmailer/PHPMailerAutoload.php";
 
 		$name	= isset($_REQUEST['name']) ? $_REQUEST['name'] : "";
 		$email 	= isset($_REQUEST['email']) ? $_REQUEST['email'] : "";
@@ -14,6 +14,8 @@
 		$message= isset($_REQUEST['message']) ? $_REQUEST['message'] : "";
 
 		if(($name!="")&&($email!="")&&($phone!="")&&($message!="")){
+
+			$subject="Mensagem enviada através do formulário de contato Gil Prodducoes";
 
 			$body = "<b>Nome:</b> {$name}
 					<br><b>Email:</b> {$email}
@@ -28,40 +30,35 @@
 						Mensagem: {$message}";
 
 			$mail = new PHPMailer;
-
-			//$mail->SMTPDebug = 3;               // Enable verbose debug output
-
-			$mail->isSMTP();                      // Set mailer to use SMTP
-			$mail->Host = '';  					  // Specify main and backup SMTP servers
-			$mail->SMTPAuth = true;               // Enable SMTP authentication
-			$mail->Username = '';          		  // SMTP username
-			$mail->Password = '';                 // SMTP password
-			$mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted
-			$mail->Port = 587;                    // TCP port to connect to
+			$mail->isSMTP();
+			$mail->Host = '';
+			$mail->SMTPAuth = true;
+			$mail->Username = '';
+			$mail->Password = '';
+			$mail->SMTPSecure = 'tls';
+			$mail->Port = 587;
 			$mail->CharSet = "UTF-8";
 
-			$mail->setFrom('', 'Gil Produções - Orçamentos');
-			$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');     // Add a recipient
-			$mail->addReplyTo($email,$name);
-
-			// $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-			// $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+			$mail->setFrom('site@gilprodducoes.com.br', 'Gil Produções - Contato');
+			$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');
 			
-			$mail->isHTML(true);                                  // Set email format to HTML
+			$mail->isHTML(true);
 
 			$mail->Subject = $subject;
 			$mail->Body    = $body;
 			$mail->AltBody = $altbody;
+			$sent = true;
 
-			$sent = 0;
+			echo '<!-- ';
 
 			if(!$mail->send()) {
-			    echo '<!-- Message could not be sent. Mailer Error: ' . $mail->ErrorInfo . '-->';
-			    $sent = 1;
+			    echo 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
+			    $sent = false;
 			} else {
-			    echo '<!-- Message has been sent -->';
-			    $sent = 2;
+			    echo 'Message has been sent';
 			}
+
+			echo ' -->';
 		}
 	}
 ?>
@@ -187,7 +184,7 @@
 				<?php if($sent){ ?>
 					Enviado com sucesso. <!-- Alterar aqui qualquer coisa que quiser colocar -->
 				<?php } ?>
-				<form action="" method="POST" enctype="multipart/form-data">
+				<form action="./contato" method="POST" enctype="multipart/form-data">
 					<input type="hidden" name="action" value="submit" />
 					<div class="col-sm-6">
 						<label>Nome:</label><br />

@@ -6,7 +6,7 @@ $action 	= isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
 
 if($action == "submit"){
 
-	require "../includes/phpmailer/PHPMailerAutoload";
+	require "../includes/phpmailer/PHPMailerAutoload.php";
 
 	$name		= isset($_REQUEST['name']) ? $_REQUEST['name'] : "";
 	$email 		= isset($_REQUEST['email']) ? $_REQUEST['email'] : "";
@@ -55,26 +55,19 @@ if($action == "submit"){
 
 
 			$mail = new PHPMailer;
-
-			//$mail->SMTPDebug = 3;               // Enable verbose debug output
-
-			$mail->isSMTP();                      // Set mailer to use SMTP
-			$mail->Host = '';  					  // Specify main and backup SMTP servers
-			$mail->SMTPAuth = true;               // Enable SMTP authentication
-			$mail->Username = '';          		  // SMTP username
-			$mail->Password = '';                 // SMTP password
-			$mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted
-			$mail->Port = 587;                    // TCP port to connect to
+			$mail->isSMTP();
+			$mail->Host = '';
+			$mail->SMTPAuth = true;
+			$mail->Username = '';
+			$mail->Password = '';
+			$mail->SMTPSecure = 'tls';
+			$mail->Port = 587;
 			$mail->CharSet = "UTF-8";
 
-			$mail->setFrom('', 'Gil Produções - Orçamentos');
-			$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');     // Add a recipient
-			$mail->addReplyTo($email,$name);
-
-			// $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-			// $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+			$mail->setFrom('site@gilprodducoes.com.br', 'Gil Produções - Orçamentos');
+			$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');
 			
-			$mail->isHTML(true);                                  // Set email format to HTML
+			$mail->isHTML(true);
 
 			$mail->Subject = $subject;
 			$mail->Body    = $body;
