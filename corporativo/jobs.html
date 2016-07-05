@@ -22,7 +22,7 @@
     <!-- Open sans -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
 
-    </head>
+</head>
 <body role="document" class="jobs">
     <header class="top">
         <nav id="menu" class="navbar navbar-inverse">
@@ -284,29 +284,7 @@
 
                 $('#video .outerplayer').css("height", height);
                 $('#video').css("height", playerheight);
-
-                // Tamanho do video de sobre nos
-                var innerWidth = $("#sobre-nos .container").width();
-                $("#sobre-nos iframe").attr("height",innerWidth/16*9);
-
-                // Tabalho do texto em "Serviços"
-                var pMaxHeight = 0;
-                var h1MaxHeight = 0;
-
-                $('#servicos figcaption p').each(function(){
-	                if($(this).parents("li").css('display') != 'none'){
-                		if($(this).height() > pMaxHeight) pMaxHeight = $(this).height();
-	                }
-                });
-
-                $('#servicos figcaption h1').each(function(){
-	                if($(this).parents("li").css('display') != 'none'){
-	                	if($(this).height() > h1MaxHeight) h1MaxHeight = $(this).height();
-	                }
-                });
-
-                $('#servicos figcaption .p').height(pMaxHeight+27);
-                $('#servicos figcaption .h1f').height(h1MaxHeight);
+                
             }).trigger('resize');
 
             $('.show-hide').click(function(){

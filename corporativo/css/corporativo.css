@@ -163,6 +163,11 @@ section header {
         color: #b95356; }
     #nossos-trabalhos aside li.active a {
       color: #b95356; }
+  #nossos-trabalhos .container .tab-content > ul.home-version {
+    padding: 0;
+    max-height: 530px;
+    position: relative;
+    overflow: hidden; }
   #nossos-trabalhos .container .tab-content > ul {
     padding: 0; }
     #nossos-trabalhos .container .tab-content > ul li {
@@ -241,7 +246,10 @@ section header {
       -moz-border-radius: 50%;
       border-radius: 50%;
       width: 100%;
-      margin-bottom: 40px; }
+      margin-bottom: 40px;
+      box-shadow: 0 0 0 1px #d81e24,  0 0 0 2px #febb23,  0 0 0 5px #d81e24;
+      width: 200px;
+      height: 200px; }
     #servicos figure div.h1f {
       display: flex;
       align-items: flex-end;
@@ -261,22 +269,28 @@ section header {
       text-decoration: underline !important; }
 
 #depoimento {
-  color: #6d6d6d;
-  padding-top: 50px; }
+  color: #1d1d1d;
+  padding-top: 50px;
+  position: relative; }
+  #depoimento > header {
+    margin: 20px 0 40px; }
   #depoimento header p {
     font-size: 1.1em;
     margin: 0; }
   #depoimento .carousel-inner {
     width: calc(100%/12*10);
     margin: 0 auto;
-    height: 395px; }
+    padding-bottom: 70px; }
     #depoimento .carousel-inner header {
       color: black;
       margin: 20px; }
-      #depoimento .carousel-inner header h1 {
+      #depoimento .carousel-inner header p {
         font-size: 1.4em;
-        font-weight: 600;
+        font-weight: 300;
         margin-top: 20px; }
+        #depoimento .carousel-inner header p span {
+          font-size: 0.7em;
+          color: #b95356; }
   #depoimento .carousel-control {
     width: calc(100%/12*1);
     position: absolute;
@@ -378,7 +392,8 @@ section header {
       text-decoration: underline !important; }
     #contato .info p, #contato .info a {
       font-weight: 200;
-      margin-bottom: 12px; }
+      margin-bottom: 12px;
+      white-space: nowrap; }
   #contato button {
     color: white;
     background-color: #bb5558;
@@ -412,25 +427,25 @@ footer ul {
       border-radius: 0;
       margin: 0 12px; }
     footer ul li a.facebook {
-      background-position: 0 -60px; }
+      background-position: -2px -60px; }
     footer ul li a.instagram {
-      background-position: -60px -60px; }
+      background-position: -62px -60px; }
     footer ul li a.vimeo {
-      background-position: -120px -60px; }
+      background-position: -122px -60px; }
     footer ul li a.youtube {
-      background-position: -180px -60px; }
+      background-position: -182px -60px; }
     footer ul li a.google {
-      background-position: -240px -60px; }
+      background-position: -242px -60px; }
     footer ul li a.facebook:hover {
-      background-position: 0 0; }
+      background-position: -2px 0; }
     footer ul li a.instagram:hover {
-      background-position: -60px 0; }
+      background-position: -62px 0; }
     footer ul li a.vimeo:hover {
-      background-position: -120px 0; }
+      background-position: -122px 0; }
     footer ul li a.youtube:hover {
-      background-position: -180px 0; }
+      background-position: -182px 0; }
     footer ul li a.google:hover {
-      background-position: -240px 0; }
+      background-position: -242px 0; }
 footer .container {
   max-width: 400px;
   height: 78px;
@@ -488,7 +503,9 @@ body.contact #contato {
 body.services #servicos {
   background-color: white; }
   body.services #servicos figure img {
-    box-shadow: 0 0 0 1px #d81e24,  0 0 0 2px #febb23,  0 0 0 5px #d81e24; }
+    box-shadow: 0 0 0 1px #d81e24,  0 0 0 2px #febb23,  0 0 0 5px #d81e24;
+    width: 200px;
+    height: 200px; }
   body.services #servicos li {
     margin-bottom: 80px; }
   body.services #servicos li.last {
@@ -649,11 +666,12 @@ body.agil #agil {
     width: 77%;
     margin: 100px auto; }
   body.agil #agil p {
-    color: #a9a9a9;
-    padding: 0 6%;
-    font-size: 1.7em;
-    line-height: 2em;
-    margin-bottom: 100px; }
+    color: white;
+    padding: 0 10px;
+    font-size: 1.3em;
+    line-height: 1.3em;
+    margin-bottom: 100px;
+    font-weight: 300; }
 body.agil #orcamento {
   background: #e8e8e8; }
   body.agil #orcamento a {
@@ -668,18 +686,19 @@ body.agil #mission {
   text-align: center; }
   body.agil #mission h3 {
     color: #b95356;
-    font-size: 7em;
-    font-weight: 600; }
+    font-size: 4em;
+    font-weight: 600;
+    padding-bottom: 20px; }
   body.agil #mission p {
     color: white;
     float: none;
-    border: 1px #a3a3a3 solid;
-    padding: 20px 30px;
-    font-size: 1.5em;
-    line-height: 2em;
+    border-top: 1px #b95356 solid;
+    padding: 20px 0;
+    font-size: 1.3em;
+    line-height: 1.3em;
     background: #313131;
-    margin-top: -28px;
-    margin-bottom: 60px; }
+    margin-bottom: 60px;
+    font-weight: 300; }
 body.agil #equips {
   background: #313131;
   padding: 60px 0 100px; }
@@ -763,6 +782,8 @@ body.budget section .container {
 body.budget .legend {
   font-style: italic;
   margin-bottom: 70px; }
+  body.budget .legend a {
+    color: #b95356; }
 body.budget fieldset {
   -webkit-box-shadow: none;
   box-shadow: none; }
@@ -822,8 +843,8 @@ body.budget #accordion .panel {
   body.budget #accordion .panel h3 a {
     color: #fffefe;
     height: 94px;
-    line-height: 35px;
-    padding: 12px 85px 12px 30px;
+    line-height: 94px;
+    padding: 0 85px 0 30px;
     display: block;
     position: relative;
     font-size: 1.2em;
@@ -891,7 +912,7 @@ body.budget #accordion .panel {
     width: calc(100% - 135px); }
 
   body.agil #equips h2 {
-    font-size: 4em; }
+    font-size: 3.6em; }
   body.agil #carousel .container-fluid .carousel-control .glyphicon {
     width: 94px;
     height: 94px;

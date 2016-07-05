@@ -1,4 +1,67 @@
-<!DOCTYPE html>
+<?php
+	$sent = false;
+
+	$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
+
+	if($action == "submit"){
+
+		require "../includes/phpmailer/PHPMailerAutoload.php";
+
+		$name	= isset($_REQUEST['name']) ? $_REQUEST['name'] : "";
+		$email 	= isset($_REQUEST['email']) ? $_REQUEST['email'] : "";
+		$phone	= isset($_REQUEST['phone']) ? $_REQUEST['phone'] : "";
+		$company= isset($_REQUEST['company']) ? $_REQUEST['company'] : "";
+		$message= isset($_REQUEST['message']) ? $_REQUEST['message'] : "";
+
+		if(($name!="")&&($email!="")&&($phone!="")&&($message!="")){
+
+			$subject="Mensagem enviada através do formulário de contato Gil Prodducoes";
+
+			$body = "<b>Nome:</b> {$name}
+					<br><b>Email:</b> {$email}
+					<br><b>Telefone:</b> {$phone}
+					<br><b>Empresa:</b> {$company}
+					<br><b>Mensagem:</b> {$message}";
+
+			$altbody = "Nome: {$name} \n\r
+						Email: {$email} \n\r
+						Telefone: {$phone} \n\r
+						Empresa: {$company} \n\r
+						Mensagem: {$message}";
+
+			$mail = new PHPMailer;
+			$mail->isSMTP();
+			$mail->Host = '';
+			$mail->SMTPAuth = true;
+			$mail->Username = '';
+			$mail->Password = '';
+			$mail->SMTPSecure = 'tls';
+			$mail->Port = 587;
+			$mail->CharSet = "UTF-8";
+
+			$mail->setFrom('site@gilprodducoes.com.br', 'Gil Produções - Contato');
+			$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');
+			
+			$mail->isHTML(true);
+
+			$mail->Subject = $subject;
+			$mail->Body    = $body;
+			$mail->AltBody = $altbody;
+			$sent = true;
+
+			echo '<!-- ';
+
+			if(!$mail->send()) {
+			    echo 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
+			    $sent = false;
+			} else {
+			    echo 'Message has been sent';
+			}
+
+			echo ' -->';
+		}
+	}
+?><!DOCTYPE html>
 <html lang="pt">
 <head>
 	<meta charset="UTF-8">
@@ -23,6 +86,9 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
     </head>
 <body role="document" class="contact">
+<?php if($sent){ ?>
+	<script>alert('Obrigado por entrar em contato. Em breve retornaremos a sua mensagem!');</script>
+<?php } ?>
     <header class="top">
         <nav id="menu" class="navbar navbar-inverse">
             <div class="container">
@@ -63,7 +129,7 @@
                 <p class="col-md-12">Venha fazer uma visita ou entre em contato conosco. Teremos um prazer enorme.</p>
             </header>
 
-            <form action="" class="col-md-9 col-sm-12">
+            <form action="contato" class="col-md-9 col-sm-12">
                 <input type="text" name="name" placeholder="Nome" class="col-xs-12">
                 <input type="text" name="email" placeholder="Email" class="col-xs-12">
                 <input type="text" name="phone" placeholder="Telefone" class="col-xs-12">
@@ -74,8 +140,8 @@
             <div class="info col-md-3 col-sm-12">
                 <article class="col-md-12 col-xs-6">
                     <h1>Gil Prodduções</h1>
-                    <p>Rua Haiti, 115 | Jardim Girassol <br>
-                    Americana, SP | CEP 13465-681 </p>
+                    <p>Rua Haiti, 115 | Jardim Girassol<br>
+                    Americana, SP | CEP 13465-681</p>
 
                     <p>+19 3461.1244</p>
 

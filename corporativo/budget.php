@@ -1,4 +1,90 @@
-<!DOCTYPE html>
+<?php
+$sent = false;
+
+
+$action 	= isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
+
+if($action == "submit"){
+
+	require "../includes/phpmailer/PHPMailerAutoload.php";
+
+	$name		= isset($_REQUEST['name']) ? $_REQUEST['name'] : "";
+	$email 		= isset($_REQUEST['email']) ? $_REQUEST['email'] : "";
+	$phone		= isset($_REQUEST['phone']) ? $_REQUEST['phone'] : "";
+	$countrycity= isset($_REQUEST['country-city']) ? $_REQUEST['country-city'] : "";
+	$howfoundus	= isset($_REQUEST['howfoundus']) ? $_REQUEST['howfoundus'] : "";
+	$eventdate	= isset($_REQUEST['event-date']) ? $_REQUEST['event-date'] : "";
+	$eventtype	= isset($_REQUEST['event-type']) ? $_REQUEST['event-type'] : "";
+	$eventtypeother	= isset($_REQUEST['event-type-other']) ? $_REQUEST['event-type-other'] : "";
+
+	$equiptext = "<ul>";
+
+	if(isset($_REQUEST['equipment'])) {
+		$equipment	=  $_REQUEST['equipment'];
+
+		foreach($equipment as $eq) {
+			$equiptext .= "<li>{$eq}</li>";
+		}
+	}
+
+	$equiptext .= "</ul>";
+
+	if(($name!="")&&($email!="")&&($phone!="")){
+
+		$subject="Mensagem enviada através do formulário de orcamento Gil Prodducoes";
+
+		$body = "<b>Nome:</b> {$name}
+				<br><b>Email:</b> {$email}
+				<br><b>Telefone:</b> {$phone}
+				<br><b>País/Cidade:</b> {$countrycity}
+				<br><b>Como nos encontrou?:</b> {$howfoundus}
+				<br><b>Quando será a data do evento?:</b> {$eventdate}
+				<br><b>Que tipo de evento será realizado?:</b> {$eventtype}
+				<br><b>Se escolheu 'outro', descreva qual:</b> {$eventtypeother}
+				<br><b>Quais de nossos produtos e serviços gostaria de contar com?:</b><br> {$equiptext}";
+
+		$altbody = "Nome: {$name}
+				\r\nEmail: {$email}
+				\r\nTelefone: {$phone}
+				\r\nPaís/Cidade: {$countrycity}
+				\r\nComo nos encontrou?: {$howfoundus}
+				\r\nQuando será a data do evento?: {$eventdate}
+				\r\nQue tipo de evento será realizado?: {$eventtype}
+				\r\nSe escolheu 'outro', descreva qual: {$eventtypeother}
+				\r\nQuais de nossos produtos e serviços gostaria de contar com?:\r\n {$equiptext}";
+
+
+			$mail = new PHPMailer;
+			$mail->isSMTP();
+			$mail->Host = '';
+			$mail->SMTPAuth = true;
+			$mail->Username = '';
+			$mail->Password = '';
+			$mail->SMTPSecure = 'tls';
+			$mail->Port = 587;
+			$mail->CharSet = "UTF-8";
+
+			$mail->setFrom('site@gilprodducoes.com.br', 'Gil Produções - Orçamentos');
+			$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');
+			
+			$mail->isHTML(true);
+
+			$mail->Subject = $subject;
+			$mail->Body    = $body;
+			$mail->AltBody = $altbody;
+
+			$sent = 0;
+
+			if(!$mail->send()) {
+			    echo '<!-- Message could not be sent. Mailer Error: ' . $mail->ErrorInfo . '-->';
+			    $sent = 1;
+			} else {
+			    echo '<!-- Message has been sent -->';
+			    $sent = 2;
+			}
+	}
+}
+?><!DOCTYPE html>
 <html lang="pt">
 <head>
 	<meta charset="UTF-8">
@@ -23,6 +109,9 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
     </head>
 <body role="document" class="budget">
+<?php if($sent){ ?>
+	<script>alert('Obrigado por solicitar um orçamento. Em breve retornaremos o seu contato!');</script>
+<?php } ?>
     <header class="top">
         <nav id="menu" class="navbar navbar-inverse">
             <div class="container">
