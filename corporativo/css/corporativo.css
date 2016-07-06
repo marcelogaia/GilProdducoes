@@ -218,6 +218,8 @@ section header {
         font-size: 0.9em;
         padding: 10px 0;
         margin-top: 40px; }
+      #sobre-nos .container article a:hover {
+        background-color: #bb5558; }
       #sobre-nos .container article p {
         border-left: 2px #bb5558 solid;
         font-size: 1.6em;
@@ -239,6 +241,8 @@ section header {
       color: white;
       text-transform: uppercase;
       padding: 10px; }
+    #servicos .link a:hover {
+      background-color: #a9a9a9; }
   #servicos figure {
     text-align: center; }
     #servicos figure img {
@@ -321,6 +325,8 @@ section header {
     height: 41px;
     padding: 10px;
     margin: 0 auto; }
+  #orcamento a:hover {
+    background-color: #444444; }
 
 #agil {
   background: transparent url(../media/img/agil-bg.png) 0 0 repeat;
@@ -351,6 +357,9 @@ section header {
     margin: 0 auto;
     background-color: #e9e9e9;
     display: block; }
+  #documentarios .btn:hover {
+    background-color: #bb5558;
+    color: #e9e9e9; }
 
 #contato {
   color: #3f3f3f;
@@ -400,6 +409,8 @@ section header {
     border-radius: 0;
     width: 143px;
     padding: 15px; }
+  #contato button:hover {
+    background-color: #838383; }
 
 footer > a {
   display: block;
@@ -499,6 +510,8 @@ body.contact #contato {
     color: white; }
   body.contact #contato button {
     background-color: #313131; }
+  body.contact #contato button:hover {
+    background-color: #838383; }
 
 body.services #servicos {
   background-color: white; }
@@ -624,11 +637,11 @@ body.documentary .trabalhos {
     text-align: center; }
 body.documentary .trabalhos:nth-child(even) h2 {
   color: #bb5558; }
-body.documentary .trabalhos:nth-child(even) p {
+body.documentary .trabalhos:nth-child(even) p a, body.documentary .trabalhos:nth-child(even) p a:hover, body.documentary .trabalhos:nth-child(even) p a:active {
   color: #565656; }
 body.documentary .trabalhos:nth-child(odd) h2 {
   color: white; }
-body.documentary .trabalhos:nth-child(odd) p {
+body.documentary .trabalhos:nth-child(odd) p a, body.documentary .trabalhos:nth-child(odd) p a:hover, body.documentary .trabalhos:nth-child(odd) p a:active {
   color: black; }
 body.documentary #trabalho1 {
   margin-top: 78px;
@@ -686,7 +699,7 @@ body.agil #mission {
   text-align: center; }
   body.agil #mission h3 {
     color: #b95356;
-    font-size: 4em;
+    font-size: 3em;
     font-weight: 600;
     padding-bottom: 20px; }
   body.agil #mission p {
@@ -694,7 +707,7 @@ body.agil #mission {
     float: none;
     border-top: 1px #b95356 solid;
     padding: 20px 0;
-    font-size: 1.3em;
+    font-size: 1em;
     line-height: 1.3em;
     background: #313131;
     margin-bottom: 60px;
@@ -792,10 +805,9 @@ body.budget fieldset {
   body.budget fieldset input[type="text"], body.budget fieldset input[type="number"] {
     display: block;
     width: 100%;
-    height: 96px;
-    line-height: 96px;
     border: none;
-    padding: 25px; }
+    padding: 15px;
+    font-size: 1.15em; }
 body.budget .panel fieldset legend a {
   width: 100%;
   height: 187px;
@@ -921,9 +933,6 @@ body.budget #accordion .panel {
     left: calc(50% - 94px/2);
     font-size: 3em; }
 
-  body.budget #details input[type="text"] {
-    margin-bottom: 90px;
-    font-size: 1.4em; }
   body.budget #accordion label {
     margin-top: 60px; }
   body.budget #accordion .panel h3 a {
@@ -955,7 +964,7 @@ body.budget #accordion .panel {
     margin: -264px 0 0 16px; }
 
   body.agil #equips h2 {
-    font-size: 5em; }
+    font-size: 3.5em; }
 
   body.budget #accordion .panel h3 a {
     height: 187px;

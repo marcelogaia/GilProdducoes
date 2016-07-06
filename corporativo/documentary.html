@@ -104,14 +104,15 @@
     <section id="trabalho1" class="trabalhos">
     	<div class="container">
     		<h2>Festa do Peão Boiadeiro de Americana</h2>
-    		<p>Uma trajetória de sucesso</p>
+    		<p>
+    		<p><a href="https://www.youtube.com/watch?v=7jEV3EHnNxo" class="vimeo-video">Uma trajetória de sucesso</a></p>
     	</div>
     </section>
 
     <section id="trabalho2" class="trabalhos">
     	<div class="container">
     		<h2>Americana Conta Suas Histórias Em:</h2>
-    		<p>Fatos e Prosa</p>
+    		<p><a href="https://www.youtube.com/watch?v=IHgpKmQDoSA" class="vimeo-video">Fatos e Prova</a></p>
     	</div>
     </section>
 
@@ -119,9 +120,9 @@
     	<div class="container">
     		<h2>Barbarense Com Muito Orgulho</h2>
     		<ol>
-    			<li><a href="javascript:void(0);">1</a></li>
-    			<li><a href="javascript:void(0);">2</a></li>
-    			<li><a href="javascript:void(0);">3</a></li>
+    			<li><a href="https://www.youtube.com/watch?v=OLaobNy_64w" class="vimeo-video">1</a></li>
+    			<li><a href="https://www.youtube.com/watch?v=JBNkQz1hT7I" class="vimeo-video">2</a></li>
+    			<li><a href="https://www.youtube.com/watch?v=qEuTvEn5-2A" class="vimeo-video">3</a></li>
     		</ol>
     	</div>
     </section>
@@ -141,6 +142,20 @@
         </div>
     </footer>
 
+    <div class="modal fade" id="video-modal" tabindex="-1" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<div class="modal-header">
+    				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+    				<h3></h3>
+    			</div>
+    			<div class="modal-body">
+    				<p></p>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
     <script src="js/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
     <script src="js/jquery-ui.min.js"></script>
@@ -149,6 +164,7 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
     
+    <script src="js/jquery.embedly.js"></script>
     <script>
         $(document).ready(function(){
 
@@ -238,6 +254,38 @@
             	if($(this).parents('#navbar').hasClass('in'))
 	            	$('button.navbar-toggle').click();
             });
+
+			$.embedly.defaults = {
+				key:'9c06f86546d64da981faf6b760ea4b28',
+				query: {
+					maxwidth:768
+				},
+				display: $.noop
+			}
+
+			$('.vimeo-video').on('click', function(){
+				var url = $(this).attr('href');
+
+				$('#video-modal').modal().on('hide', function(){
+					$('#video-modal .modal-body').html('');
+				})
+
+				// Call Embedly
+				$.embedly.oembed(url).progress(function(data){
+					// Fill the modal header
+					$('#video-modal .modal-header h3').html(data.title);
+
+					// Fill the modal value.
+					$('#video-modal .modal-body').html(data.html);
+				});
+
+				return false;
+			});
+
+			$('#video-modal').on('hidden.bs.modal', function (e) {
+				$('#video-modal iframe').attr("src", jQuery("#video-modal iframe").attr("src"));
+			});
+
 
         });
         function scrollToAnchor(aid){
