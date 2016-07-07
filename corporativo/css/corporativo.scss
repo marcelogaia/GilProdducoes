@@ -1051,7 +1051,7 @@ body.agil {
 		background: #313131;
 		
 		img {
-			width: 77%;
+			width: 45%;
 			margin:100px auto;
 		}
 
@@ -1371,11 +1371,13 @@ body.budget{
 		position: absolute;
 		top: -70px;
 		left: -85px;
+		width: auto;
 	}
 
 	#servicos figure h1 {
 	    font-size: 1.2em;
    	}
+
 	header.top .navbar ul li {
 		display: inline-block;
 		font-size: 1em;
@@ -1385,6 +1387,7 @@ body.budget{
 		max-width: 976px;
 		padding: 0; 
 	}
+
 	.sm{
 		display: inline-block;
 	}
@@ -1568,4 +1571,22 @@ body.budget{
 	#social-link {
 		display:none;
 	}
+	body.agil {
+		#agil img {
+			width: 65%;
+			margin: 30px auto;
+		}
+
+		#equips li.panel{
+
+			h3 a {
+				padding-left: 30px;
+			}
+
+			.glyphicon {
+				right:20px;
+			}
+		} 
+	}
+		
 }

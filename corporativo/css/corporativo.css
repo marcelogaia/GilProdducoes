@@ -687,7 +687,7 @@ body.agil #agil {
   line-height: 1em;
   background: #313131; }
   body.agil #agil img {
-    width: 77%;
+    width: 45%;
     margin: 100px auto; }
   body.agil #agil p {
     color: white;
@@ -898,7 +898,8 @@ body.budget #accordion .panel {
   body.home header.top #video #controls img {
     position: absolute;
     top: -70px;
-    left: -85px; }
+    left: -85px;
+    width: auto; }
 
   #servicos figure h1 {
     font-size: 1.2em; }
@@ -998,6 +999,14 @@ body.budget #accordion .panel {
     display: block; }
 
   #social-link {
-    display: none; } }
+    display: none; }
+
+  body.agil #agil img {
+    width: 65%;
+    margin: 30px auto; }
+  body.agil #equips li.panel h3 a {
+    padding-left: 30px; }
+  body.agil #equips li.panel .glyphicon {
+    right: 20px; } }
 
 /*# sourceMappingURL=corporativo.css.map */

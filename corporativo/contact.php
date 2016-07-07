@@ -138,7 +138,7 @@
                 <button type="submit" class="btn">Enviar</button>
             </form>
             <div class="info col-md-3 col-sm-12">
-                <article class="col-md-12 col-xs-6">
+                <article class="col-md-12 col-sm-6 col-xs-12">
                     <h1>Gil Prodduções</h1>
                     <p>Rua Haiti, 115 | Jardim Girassol<br>
                     Americana, SP | CEP 13465-681</p>
@@ -149,7 +149,7 @@
                         
                     <a class="mapa" href="#contato">ver no mapa</a>
                 </article>
-                <article class="col-md-12 col-xs-6">
+                <article class="col-md-12 col-sm-6 col-xs-12">
                     <h1>Ágil Locações:</h1>
                     <a class="mailto" target="_blank" href="mailto:locacao@gilprodducoes.com.br">locacao@gilprodducoes.com.br</a>
                 </article>
