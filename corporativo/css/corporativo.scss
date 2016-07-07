@@ -256,7 +256,8 @@ section {
 				}
 
 				figcaption {
-					display: none;
+					display: table;
+					opacity: 0;
 				    position: absolute;
 					top: 0;
 					width: 100%;
@@ -265,6 +266,7 @@ section {
 					color: white;
 					text-align: center;
 					font-size: 1.8em;
+					transition: all .4s linear;
 
 					p {
 						display: table-cell;
@@ -275,7 +277,8 @@ section {
 			}
 
 			a:hover figcaption {
-				display: table;
+				opacity: 1;
+				transition: all .25s linear;
 			}
 		}
 
@@ -443,7 +446,7 @@ section {
 	.carousel-control {
 		width:calc(100%/12*1);
 		position: absolute;
-		top:50%;
+		top:calc(50% + 120px);
 		margin-top:-10px;	
 	}
 
@@ -975,7 +978,7 @@ body.documentary {
 			color: #bb5558;
 		}
 
-		p a, p a:hover, p a:active{
+		a, a:hover, a:active{
 			color: #565656;
 		}
 	}
@@ -984,7 +987,7 @@ body.documentary {
 			color: white;
 		}
 
-		p a, p a:hover, p a:active{
+		a, a:hover, a:active{
 			color: black;
 		}
 	}
@@ -1521,15 +1524,15 @@ body.budget{
 			.panel {
 				h3{
 					a {
-					    height: 187px;
-					    line-height: 187px;
-					    padding-left: 110px;
-					    font-size: 1.8em;
+					    height: 70px;
+					    line-height: 70px;
+					    padding-left: 20px;
+					    font-size: 1em;
 
     					.glyphicon {
-						    right: 116px;
-						    font-size: 1.8em;
-						    top: 56px;
+						    right: 20px;
+						    font-size: 1.5em;
+						    top: 20px;
 						}
 					}
 				}

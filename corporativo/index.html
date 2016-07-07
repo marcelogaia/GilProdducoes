@@ -31,12 +31,13 @@
             <div class="prevent-hover"></div>
             <div id="controls">
                 <ul>
-                    <li><a href="javascript:void(0)" class="play" onclick="play()">play</a></li>
-                    <li><a href="javascript:void(0)" class="pause" onclick="pause()">pause</a></li>
-                    <li><a href="javascript:void(0)" class="mute" onclick="mute()">mute</a></li>
+                    <li style="display:none;"><a href="javascript:void(0)" class="play" onclick="play()">play</a></li>
+                    <li style="display:none;"><a href="javascript:void(0)" class="pause" onclick="pause()">pause</a></li>
+                    <li style="display:none;"><a href="javascript:void(0)" class="mute" onclick="mute()">mute</a></li>
                 </ul>
+                <img src="media/img/logo-gilprodducoes-home.png" style="position:absolute;top:-70px;left:-85px;">
             </div>
-            <a href="javascript:void(0)" class="show-hide">show / hide</a>
+            <a href="javascript:void(0)" class="show-hide" style="display:none;">show / hide</a>
     	</section>
         <nav id="menu" class="navbar navbar-inverse">
             <div class="container">
@@ -468,7 +469,7 @@
                 var height = (width/16*9) - 50;
                 if(height > 900) height = 900;
 
-                var playerheight = window.innerHeight - 50;
+                var playerheight = window.innerHeight;// - 50;
                 if(playerheight > height) playerheight = height;
 
                 $('#video .outerplayer').css("height", height);

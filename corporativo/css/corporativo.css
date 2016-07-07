@@ -179,7 +179,8 @@ section header {
         #nossos-trabalhos .container .tab-content > ul li figure img {
           width: 100%; }
         #nossos-trabalhos .container .tab-content > ul li figure figcaption {
-          display: none;
+          display: table;
+          opacity: 0;
           position: absolute;
           top: 0;
           width: 100%;
@@ -187,13 +188,15 @@ section header {
           background-color: rgba(222, 94, 96, 0.88);
           color: white;
           text-align: center;
-          font-size: 1.8em; }
+          font-size: 1.8em;
+          transition: all .4s linear; }
           #nossos-trabalhos .container .tab-content > ul li figure figcaption p {
             display: table-cell;
             vertical-align: middle;
             text-align: center; }
       #nossos-trabalhos .container .tab-content > ul li a:hover figcaption {
-        display: table; }
+        opacity: 1;
+        transition: all .25s linear; }
 
 #sobre-nos {
   background-color: #3f3f3f;
@@ -298,7 +301,7 @@ section header {
   #depoimento .carousel-control {
     width: calc(100%/12*1);
     position: absolute;
-    top: 50%;
+    top: calc(50% + 120px);
     margin-top: -10px; }
   #depoimento .carousel-indicators li {
     border-color: #bebebe; }
@@ -637,11 +640,11 @@ body.documentary .trabalhos {
     text-align: center; }
 body.documentary .trabalhos:nth-child(even) h2 {
   color: #bb5558; }
-body.documentary .trabalhos:nth-child(even) p a, body.documentary .trabalhos:nth-child(even) p a:hover, body.documentary .trabalhos:nth-child(even) p a:active {
+body.documentary .trabalhos:nth-child(even) a, body.documentary .trabalhos:nth-child(even) a:hover, body.documentary .trabalhos:nth-child(even) a:active {
   color: #565656; }
 body.documentary .trabalhos:nth-child(odd) h2 {
   color: white; }
-body.documentary .trabalhos:nth-child(odd) p a, body.documentary .trabalhos:nth-child(odd) p a:hover, body.documentary .trabalhos:nth-child(odd) p a:active {
+body.documentary .trabalhos:nth-child(odd) a, body.documentary .trabalhos:nth-child(odd) a:hover, body.documentary .trabalhos:nth-child(odd) a:active {
   color: black; }
 body.documentary #trabalho1 {
   margin-top: 78px;
@@ -969,13 +972,13 @@ body.budget #accordion .panel {
     font-size: 3.5em; }
 
   body.budget #accordion .panel h3 a {
-    height: 187px;
-    line-height: 187px;
-    padding-left: 110px;
-    font-size: 1.8em; }
+    height: 70px;
+    line-height: 70px;
+    padding-left: 20px;
+    font-size: 1em; }
     body.budget #accordion .panel h3 a .glyphicon {
-      right: 116px;
-      font-size: 1.8em;
-      top: 56px; } }
+      right: 20px;
+      font-size: 1.5em;
+      top: 20px; } }
 
 /*# sourceMappingURL=corporativo.css.map */
