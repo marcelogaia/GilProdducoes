@@ -7,12 +7,10 @@
 html,body {
 	height: 100%;
 	width: 100%;
-	overflow-x: hidden
 }
 
 body {
 	font-family: 'Open Sans', sans-serif; 
-	position: relative;
 }
 
 a {
@@ -1616,8 +1614,20 @@ body.budget{
 		top: calc(50% + 60px);
 	}
 
-	#orcamento a {
-		width: 260px;
-		font-size:13px;
+	#orcamento {
+		height: 280px;
+
+		h1 {
+			margin: 60px 0;
+		}
+	 	a {
+			width: 260px;
+			font-size:13px;
+		}
+	}
+
+	body.about #sobre-nos .row h2 {
+	    text-align: left;
+	    justify-content: flex-start
 	}
 }
