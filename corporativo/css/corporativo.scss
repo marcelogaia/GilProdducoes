@@ -7,9 +7,13 @@
 html,body {
 	height: 100%;
 	width: 100%;
+	overflow-x: hidden
 }
 
-body {font-family: 'Open Sans', sans-serif; overflow-x: hidden;}
+body {
+	font-family: 'Open Sans', sans-serif; 
+	position: relative;
+}
 
 a {
 	text-decoration: none !important;
@@ -160,7 +164,7 @@ header.top {
 			overflow: hidden;
 			text-indent: -9999px;
 			padding: 0px !important;
-			margin-left: 0;
+			margin-left: 15px;
 		}
 
 		ul {
@@ -357,7 +361,7 @@ section {
 		clear:both;
 		a {
 			text-align: center;
-			width:310px;
+			width:260px;
 			height:41px;
 			margin:55px auto;
 			background-color: #6a6a6a;
@@ -1571,6 +1575,7 @@ body.budget{
 	#social-link {
 		display:none;
 	}
+
 	body.agil {
 		#agil img {
 			width: 65%;
@@ -1588,5 +1593,31 @@ body.budget{
 			}
 		} 
 	}
-		
+
+	footer ul li a.btn {
+		margin: 0 2px;
+	}	
+
+	body.home header.top #video #controls {
+		display: none;
+	}
+
+	#sobre-nos .container article a {
+		float: none;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	#servicos figure a {
+		margin-bottom: 30px;
+		display:block;
+	}
+	#depoimento .carousel-control {
+		top: calc(50% + 60px);
+	}
+
+	#orcamento a {
+		width: 260px;
+		font-size:13px;
+	}
 }
