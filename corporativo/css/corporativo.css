@@ -598,7 +598,7 @@ body.documentary .como-patrocinar h2 {
   text-align: center;
   margin: 70px 0; }
 body.documentary .como-patrocinar ol li {
-  min-height: 190px;
+  /* min-height: 190px; */
   margin-bottom: 30px; }
   body.documentary .como-patrocinar ol li span {
     font: normal 600 6em/90px 'Open Sans',Helvetica, Arial, sans-serif;
@@ -932,6 +932,8 @@ body.budget #accordion .panel {
     top: calc(50% - 94px/2);
     left: calc(50% - 94px/2);
     font-size: 3em; }
+  body.agil #orcamento img {
+    width: 50%; }
 
   body.budget #accordion label {
     margin-top: 60px; }

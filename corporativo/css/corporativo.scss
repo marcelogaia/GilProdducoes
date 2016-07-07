@@ -912,7 +912,7 @@ body.documentary {
 
 		ol{
 			li{
-				min-height: 190px;
+				/* min-height: 190px; */
 				margin-bottom: 30px;
 
 				span{
@@ -1435,6 +1435,10 @@ body.budget{
 
 				font-size: 3em;
 			}
+		}
+
+		#orcamento img {
+			width: 50%;
 		}
 
 	}
