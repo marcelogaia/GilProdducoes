@@ -59,10 +59,10 @@
 
     <section id="nossos-trabalhos">
         <div class="container">
-                
+
             <header class="col-md-12">
                 <h1 class="col-md-12">Nossos Trabalhos</h1>
-                <p class="col-md-12">Abaixo algumas de nossas melhores producoes</p>
+                <p class="col-md-12">Abaixo algumas de nossas melhores produções</p>
             </header>
             <aside class="col-md-3 col-sm-4 col-xs-5">
                 <h1>Tipos de Trabalhos</h1>
@@ -201,11 +201,11 @@
     <script src="js/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
     <script src="js/jquery-ui.min.js"></script>
-	
+
     <!-- Latest compiled and minified JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
-    
+
     <script src="js/jquery.embedly.js"></script>
     <script>
         var tag = document.createElement('script');
@@ -284,7 +284,7 @@
 
                 $('#video .outerplayer').css("height", height);
                 $('#video').css("height", playerheight);
-                
+
             }).trigger('resize');
 
             $('.show-hide').click(function(){
@@ -293,10 +293,10 @@
                 $('#controls').animate(
                     {
                         bottom:     self.hasClass('down') ? 0 : -98
-                    }, 
+                    },
                     {
-                        duration:   800, 
-                        easing:     'easeInOutBack', 
+                        duration:   800,
+                        easing:     'easeInOutBack',
                         done:       function(){
                                         self.toggleClass('down');
                                     },
@@ -386,14 +386,14 @@
 
 			if(status == 'open'){
 				img.animate(
-                    {right: -120}, 
+                    {right: -120},
                     {duration:400,easing:'easeInOutBack',done: function(){
         				$("#social-link").attr('src',"media/img/social-link2.png");
                     }});
 				status = 'closed';
 			} else {
 				img.animate(
-                    {right: -10}, 
+                    {right: -10},
                     {duration:   400,easing:'easeInOutBack',done:function(){
 		        		$("#social-link").attr('src',"media/img/social-link.png");
                     }});
