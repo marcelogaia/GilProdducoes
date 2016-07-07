@@ -443,7 +443,7 @@ if($action == "submit"){
 					}
 
 					$('#social-link').attr("data-status",status);
-				});
+				}).trigger('click');
 
 		        var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
 

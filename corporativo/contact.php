@@ -276,7 +276,7 @@
 				}
 
 				$('#social-link').attr("data-status",status);
-			});
+			}).trigger('click');
         });
 
         function scrollToAnchor(aid){

@@ -35,7 +35,7 @@
                     <li style="display:none;"><a href="javascript:void(0)" class="pause" onclick="pause()">pause</a></li>
                     <li style="display:none;"><a href="javascript:void(0)" class="mute" onclick="mute()">mute</a></li>
                 </ul>
-                <img src="media/img/logo-gilprodducoes-home.png" style="position:absolute;top:-70px;left:-85px;">
+                <img src="media/img/logo-gilprodducoes-home.png">
             </div>
             <a href="javascript:void(0)" class="show-hide" style="display:none;">show / hide</a>
     	</section>
@@ -59,6 +59,7 @@
                         <li class="agil"><a href="agil-locacoes">Ágil LOCAÇÕES</a></li>
                         <li class="documentary"><a href="documentarios">DocumentÁrios</a></li>
                         <li class="contact"><a href="contato" class="last">Contato</a></li>
+						<li class="social"><a href="../social/">Social</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -644,7 +645,7 @@
 			}
 
 			$('#social-link').attr("data-status",status);
-		});
+		}).trigger('click');
     </script>
 </body>
 </html>

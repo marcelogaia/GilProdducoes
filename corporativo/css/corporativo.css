@@ -54,28 +54,33 @@ header.top {
         text-align: center;
         height: 175px;
         display: block; }
-      header.top #video #controls li {
-        display: inline-block;
-        list-style: none;
-        width: 25px;
-        height: 98px;
-        margin: 30px 5px 0; }
-        header.top #video #controls li a {
-          background-position: 0 0;
-          text-indent: -999px;
+        header.top #video #controls ul li {
+          display: inline-block;
+          list-style: none;
           width: 25px;
-          height: 25px;
-          display: block;
-          line-height: 98px;
-          overflow: hidden; }
-        header.top #video #controls li a:hover {
-          background-position: 25px 0; }
-        header.top #video #controls li a.play {
-          background-image: url(../media/img/player-play.png); }
-        header.top #video #controls li a.pause {
-          background-image: url(../media/img/player-pause.png); }
-        header.top #video #controls li a.mute {
-          background-image: url(../media/img/player-mute.png); }
+          height: 98px;
+          margin: 30px 5px 0; }
+          header.top #video #controls ul li a {
+            background-position: 0 0;
+            text-indent: -999px;
+            width: 25px;
+            height: 25px;
+            display: block;
+            line-height: 98px;
+            overflow: hidden; }
+          header.top #video #controls ul li a:hover {
+            background-position: 25px 0; }
+          header.top #video #controls ul li a.play {
+            background-image: url(../media/img/player-play.png); }
+          header.top #video #controls ul li a.pause {
+            background-image: url(../media/img/player-pause.png); }
+          header.top #video #controls ul li a.mute {
+            background-image: url(../media/img/player-mute.png); }
+      header.top #video #controls img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%; }
     header.top #video .show-hide {
       background-image: url(../media/img/show-hide.png);
       height: 33px;
@@ -99,7 +104,8 @@ header.top {
       width: 100%;
       position: absolute;
       top: 0;
-      left: 0; }
+      left: 0;
+      display: none; }
   header.top .navbar {
     border-radius: 0px;
     border-width: 0 0 1px; }
@@ -132,6 +138,8 @@ header.top {
           padding: 14px 0 12px 12px; }
         header.top .navbar ul li a:hover, header.top .navbar ul li a.active {
           color: #b95356; }
+      header.top .navbar ul li.social {
+        display: none; }
 
 section header {
   text-align: center;
@@ -887,6 +895,11 @@ body.budget #accordion .panel {
     top: 26px; }
 
 @media (min-width: 768px) {
+  body.home header.top #video #controls img {
+    position: absolute;
+    top: -70px;
+    left: -85px; }
+
   #servicos figure h1 {
     font-size: 1.2em; }
 
@@ -980,5 +993,11 @@ body.budget #accordion .panel {
       right: 20px;
       font-size: 1.5em;
       top: 20px; } }
+@media screen and (max-width: 478px) {
+  header.top .navbar ul li.social {
+    display: block; }
+
+  #social-link {
+    display: none; } }
 
 /*# sourceMappingURL=corporativo.css.map */

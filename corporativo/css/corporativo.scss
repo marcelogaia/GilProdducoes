@@ -63,41 +63,49 @@ header.top {
 				text-align:	center;
 				height:		175px;
 				display:	block;
+
+
+				li {
+					display:	inline-block;
+					list-style:	none;
+					width:		25px;
+					height:		98px;
+					margin:		30px 5px 0;
+
+					a {
+						background-position: 0 0;
+						text-indent: -999px;
+						width:		25px;
+						height:		25px;
+						display: 	block;
+						line-height:98px;
+						overflow: 	hidden;
+					}
+
+					a:hover {
+						background-position: 25px 0;
+					}
+
+					a.play {
+						background-image: 	url(../media/img/player-play.png);
+					}
+
+					a.pause {
+						background-image: 	url(../media/img/player-pause.png);
+					}
+
+					a.mute {
+						background-image: 	url(../media/img/player-mute.png);
+					}
+
+				}
 			}
 
-			li {
-				display:	inline-block;
-				list-style:	none;
-				width:		25px;
-				height:		98px;
-				margin:		30px 5px 0;
-
-				a {
-					background-position: 0 0;
-					text-indent: -999px;
-					width:		25px;
-					height:		25px;
-					display: 	block;
-					line-height:98px;
-					overflow: 	hidden;
-				}
-
-				a:hover {
-					background-position: 25px 0;
-				}
-
-				a.play {
-					background-image: 	url(../media/img/player-play.png);
-				}
-
-				a.pause {
-					background-image: 	url(../media/img/player-pause.png);
-				}
-
-				a.mute {
-					background-image: 	url(../media/img/player-mute.png);
-				}
-
+			img {
+				position: absolute;
+    			top: 0;
+   				left: 0;
+   				width: 100%;
 			}
 		}
 
@@ -132,6 +140,7 @@ header.top {
 			position:	absolute;
 			top:		0;
 			left:		0;
+			display:	none;
 		}
 	}
 
@@ -177,6 +186,10 @@ header.top {
 			    a:hover, a.active {
 					color: #b95356;
 			    }
+		    }
+
+		    li.social {
+		    	display: none;
 		    }
 		}
 	}
@@ -1354,6 +1367,12 @@ body.budget{
 
 @media (min-width: 768px) {
 
+	body.home header.top #video #controls img{
+		position: absolute;
+		top: -70px;
+		left: -85px;
+	}
+
 	#servicos figure h1 {
 	    font-size: 1.2em;
    	}
@@ -1538,5 +1557,15 @@ body.budget{
 				}
 			}
 		}
+	}
+}
+
+@media screen and (max-width: 478px) {
+	header.top .navbar ul li.social{
+		display: block;	
+	}
+
+	#social-link {
+		display:none;
 	}
 }
