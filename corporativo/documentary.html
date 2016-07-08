@@ -45,6 +45,7 @@
                         <li><a href="agil-locacoes">Ágil LOCAÇÕES</a></li>
                         <li><a href="documentarios" class="active">DocumentÁrios</a></li>
                         <li><a href="contato" class="last">Contato</a></li>
+						<li class="social"><a href="../social/">Social</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -263,7 +264,6 @@
 			$.embedly.defaults = {
 				key:'9c06f86546d64da981faf6b760ea4b28',
 				query: {
-					maxwidth:768
 				},
 				display: $.noop
 			}
@@ -282,6 +282,14 @@
 
 					// Fill the modal value.
 					$('#video-modal .modal-body').html(data.html);
+
+					$('#video-modal .modal-body iframe').attr('width','100%');
+
+	                var width = $(window).width();
+	                var height = (width/16*9) - 50;
+
+					$('#video-modal .modal-body iframe').attr('height', height);
+
 				});
 
 				return false;

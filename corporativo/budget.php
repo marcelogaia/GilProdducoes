@@ -134,6 +134,7 @@ if($action == "submit"){
                         <li><a href="agil-locacoes">Ágil LOCAÇÕES</a></li>
                         <li><a href="documentarios">DocumentÁrios</a></li>
                         <li><a href="contato" class="last">Contato</a></li>
+						<li class="social"><a href="../social/">Social</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>

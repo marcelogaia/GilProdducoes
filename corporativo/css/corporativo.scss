@@ -396,10 +396,6 @@ section {
 
 		}
 
-		div.p {
-
-		}
-
 		h1 {
 			font-size:1em;
 			font-weight: 600;
@@ -1592,11 +1588,16 @@ body.budget{
 		#equips li.panel{
 
 			h3 a {
-				padding-left: 30px;
+				padding-left: 10px;
+			    height: 60px;
+			    line-height: 60px;
+			    font-size: .9em;
 			}
 
 			.glyphicon {
-				right:20px;
+				right:10px;
+				top: 20px;
+   	 			font-size: 1.1em;
 			}
 		} 
 	}
@@ -1615,10 +1616,25 @@ body.budget{
 		margin-left: auto;
 	}
 
-	#servicos figure a {
-		margin-bottom: 30px;
-		display:block;
+	body.services #servicos li{
+		margin-bottom: 40px;
 	}
+
+	#servicos figure {
+		a {
+			margin-bottom: 30px;
+			margin-top: 15px;
+			display:block;
+		}
+
+		div.p {
+			height: auto !important;
+		}
+	}
+
+
+	
+
 	#depoimento .carousel-control {
 		top: calc(50% + 60px);
 	}
@@ -1673,5 +1689,20 @@ body.budget{
 
 	body.documentary #documentarios header {
 	    margin-top: 60px;
+	}
+
+	footer .container {
+		padding: 0 3px;
+		height: 60px;
+
+		p {
+		    line-height: 50px;
+		    max-width: 275px;
+		    font-size:9px;
+		}
+
+		> a {
+			height: 50px;
+		}
 	}
 }
