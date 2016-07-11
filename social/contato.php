@@ -52,15 +52,14 @@ $senha 		= ""; // Senha do usuario. Ex.: "123@Mudar!"
 			$mail->Subject = $subject;
 			$mail->Body    = $body;
 			$mail->AltBody = $altbody;
-			$sent = true;
 
 			echo '<!-- ';
 
 			if(!$mail->send()) {
 			    echo 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
-			    $sent = false;
 			} else {
 			    echo 'Message has been sent';
+				$sent = true;
 			}
 
 			echo ' -->';
@@ -118,6 +117,9 @@ $senha 		= ""; // Senha do usuario. Ex.: "123@Mudar!"
 </head>
 
 <body role="document" class="contact">
+<?php if($sent){ ?>
+	<script>alert('Obrigado por entrar em contato. Em breve retornaremos a sua mensagem!');</script>
+<?php } ?>
 
    <!-- Fixed navbar -->
 	<nav class="navbar navbar-default navbar-fixed-top">

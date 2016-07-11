@@ -52,15 +52,14 @@ if($action == "submit"){
 		$mail->Subject = $subject;
 		$mail->Body    = $body;
 		$mail->AltBody = $altbody;
-		$sent = true;
 
 		echo '<!-- ';
 
 		if(!$mail->send()) {
 		    echo 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
-		    $sent = false;
 		} else {
 		    echo 'Message has been sent';
+				$sent = true;
 		}
 
 		echo ' -->';

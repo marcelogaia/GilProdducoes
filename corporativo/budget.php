@@ -82,10 +82,9 @@ if($action == "submit"){
 
 		if(!$mail->send()) {
 		    echo '<!-- Message could not be sent. Mailer Error: ' . $mail->ErrorInfo . '-->';
-		    $sent = 1;
 		} else {
 		    echo '<!-- Message has been sent -->';
-		    $sent = 2;
+		    $sent = true;
 		}
 	}
 }

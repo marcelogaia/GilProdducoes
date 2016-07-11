@@ -82,10 +82,9 @@ if($action == "submit"){
 
 			if(!$mail->send()) {
 			    echo '<!-- Message could not be sent. Mailer Error: ' . $mail->ErrorInfo . '-->';
-			    $sent = 1;
 			} else {
 			    echo '<!-- Message has been sent -->';
-			    $sent = 2;
+			    $sent = true;
 			}
 	}
 }
@@ -140,6 +139,9 @@ if($action == "submit"){
 </head>
 
 <body role="document" class="budget">
+<?php if($sent){ ?>
+	<script>alert('Obrigado por solicitar um orçamento. Em breve retornaremos o seu contato!');</script>
+<?php } ?>
    <!-- Fixed navbar -->
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
