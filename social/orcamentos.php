@@ -1,4 +1,9 @@
 <?php
+
+$host 		= ""; // Link do host. Ex.: "smtp.gilprodducoes.com.br"
+$usuario 	= ""; // Nome de usuario. Ex.: "site@gilprodducoes.com.br"
+$senha 		= ""; // Senha do usuario. Ex.: "123@Mudar!"
+
 $sent = false;
 
 
@@ -56,10 +61,10 @@ if($action == "submit"){
 
 			$mail = new PHPMailer;
 			$mail->isSMTP();
-			$mail->Host = '';
+			$mail->Host = $host;
 			$mail->SMTPAuth = true;
-			$mail->Username = '';
-			$mail->Password = '';
+			$mail->Username = $usuario;
+			$mail->Password = $senha;
 			$mail->SMTPSecure = 'tls';
 			$mail->Port = 587;
 			$mail->CharSet = "UTF-8";
