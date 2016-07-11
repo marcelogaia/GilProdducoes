@@ -760,6 +760,10 @@ body:not(.home){
 	background-color: #CCC;
 }	
 
+#nossos-trabalhos .dropdown {
+	display:none;
+}
+
 body.contact {
 
 	#contato {
@@ -1703,6 +1707,43 @@ body.budget{
 
 		> a {
 			height: 50px;
+		}
+	}
+
+	#nossos-trabalhos aside {
+		display: none;
+	}
+
+	#nossos-trabalhos .dropdown {
+		display: block;
+		margin: 20px 0;
+		padding: 0;
+
+		button, .dropdown-menu, li {
+		    border-radius: 0;
+		    box-shadow: none;
+			width: 100%;
+		}
+
+		.btn {
+			padding: 10px 15px;
+			position: relative;
+			text-align: left;
+
+			.caret { 
+				position: absolute;
+				right: 10px;
+				top: 20px;
+			}
+		}
+
+		.dropdown-menu{		
+		    margin: 0;
+
+		    li.active a{
+		    	background: transparent;
+		    	color: #333;
+		    }
 		}
 	}
 }

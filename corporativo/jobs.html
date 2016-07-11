@@ -66,7 +66,27 @@
                 <h1 class="col-md-12">Nossos Trabalhos</h1>
                 <p class="col-md-12">Abaixo algumas de nossas melhores produções</p>
             </header>
-            <aside class="col-md-3 col-sm-4 col-xs-5">
+			<div class="dropdown col-xs-12">
+				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					Todos
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu nav nav-pills nav-stacked" id="categorias" aria-labelledby="dropdownMenu1">
+                    <li><a data-toggle="pill" href="#todos">Todos</a></li>
+					<li role="separator" class="divider"></li>
+                    <li><a data-toggle="pill" href="#institucional">Vídeos Institucional/Promocional</a></li>
+                    <li><a data-toggle="pill" href="#integracao">Vídeo Integração/Treinamento</a></li>
+                    <li><a data-toggle="pill" href="#aula">Vídeo Aula</a></li>
+                    <li><a data-toggle="pill" href="#comercial">VT Comercial</a></li>
+                    <li><a data-toggle="pill" href="#eventos">Registro de Eventos</a></li>
+                    <li><a data-toggle="pill" href="#transmissao">Transmissão Simultãnea</a></li>
+                    <li><a data-toggle="pill" href="#tv-corporativa">TV Corporativa</a></li>
+                    <li><a data-toggle="pill" href="#sky-view">Sky View</a></li>
+                    <li><a data-toggle="pill" href="#time-lapse">Time Lapse</a></li>
+                    <li><a data-toggle="pill" href="#legendas">Legendas/Idiomas</a></li>
+				</ul>
+			</div>
+            <aside class="col-md-3 col-sm-4 col-xs-12">
                 <h1>Tipos de Trabalhos</h1>
                 <ul class="nav nav-pills nav-stacked">
                     <li class="active"><a data-toggle="pill" href="#todos">Todos</a></li>
@@ -82,7 +102,7 @@
                     <li><a data-toggle="pill" href="#legendas">Legendas/Idiomas</a></li>
                 </ul>
             </aside>
-            <div class="col-md-9 col-sm-8 col-xs-7 tab-content">
+            <div class="col-md-9 col-sm-8 col-xs-12 tab-content">
 	            <ul id="todos" class="tab-pane fade in active"></ul>
 	            <ul id="institucional" class="tab-pane fade">
 	                <li class="col-md-4 col-xs-6"><a href="https://www.youtube.com/watch?v=AoZsIGqd3ac" class="vimeo-video"><figure>
@@ -286,7 +306,6 @@
 
                 $('#video .outerplayer').css("height", height);
                 $('#video').css("height", playerheight);
-
             }).trigger('resize');
 
             $('.show-hide').click(function(){
@@ -363,6 +382,14 @@
 
 					// Fill the modal value.
 					$('#video-modal .modal-body').html(data.html);
+					
+
+					$('#video-modal .modal-body iframe').attr('width','100%');
+
+	                var width = $(window).width();
+	                var height = (width/16*9) - 50;
+
+					$('#video-modal .modal-body iframe').attr('height', height);
 				});
 
 				return false;
@@ -370,6 +397,12 @@
 
 			$('#video-modal').on('hidden.bs.modal', function (e) {
 				$('#video-modal iframe').attr("src", jQuery("#video-modal iframe").attr("src"));
+			});
+
+			$('#categorias li a').on('click', function(){
+				var item = $(this).html();
+				$('#dropdownMenu1').html(item+'<span class="caret"></span>');
+				$('#dropdownMenu1').dropdown('toggle');
 			});
         });
         function scrollToAnchor(aid){

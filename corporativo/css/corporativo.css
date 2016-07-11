@@ -499,6 +499,9 @@ body:not(.home) .navbar {
   height: 390px;
   background-color: #CCC; }
 
+#nossos-trabalhos .dropdown {
+  display: none; }
+
 body.contact #contato {
   background-color: #bb5558;
   color: white; }
@@ -1091,6 +1094,31 @@ body.budget #accordion .panel {
       max-width: 275px;
       font-size: 9px; }
     footer .container > a {
-      height: 50px; } }
+      height: 50px; }
+
+  #nossos-trabalhos aside {
+    display: none; }
+
+  #nossos-trabalhos .dropdown {
+    display: block;
+    margin: 20px 0;
+    padding: 0; }
+    #nossos-trabalhos .dropdown button, #nossos-trabalhos .dropdown .dropdown-menu, #nossos-trabalhos .dropdown li {
+      border-radius: 0;
+      box-shadow: none;
+      width: 100%; }
+    #nossos-trabalhos .dropdown .btn {
+      padding: 10px 15px;
+      position: relative;
+      text-align: left; }
+      #nossos-trabalhos .dropdown .btn .caret {
+        position: absolute;
+        right: 10px;
+        top: 20px; }
+    #nossos-trabalhos .dropdown .dropdown-menu {
+      margin: 0; }
+      #nossos-trabalhos .dropdown .dropdown-menu li.active a {
+        background: transparent;
+        color: #333; } }
 
 /*# sourceMappingURL=corporativo.css.map */
