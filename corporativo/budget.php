@@ -1,4 +1,10 @@
 <?php
+
+$host 		= ""; // Link do host. Ex.: "smtp.gilprodducoes.com.br"
+$usuario 	= ""; // Nome de usuario. Ex.: "site@gilprodducoes.com.br"
+$senha 		= ""; // Senha do usuario. Ex.: "123@Mudar!"
+
+
 $sent = false;
 
 
@@ -53,35 +59,34 @@ if($action == "submit"){
 				\r\nSe escolheu 'outro', descreva qual: {$eventtypeother}
 				\r\nQuais de nossos produtos e serviços gostaria de contar com?:\r\n {$equiptext}";
 
+		$mail = new PHPMailer;
+		$mail->isSMTP();
+		$mail->Host = $host;
+		$mail->SMTPAuth = true;
+		$mail->Username = $usuario;
+		$mail->Password = $senha;
+		$mail->SMTPSecure = 'tls';
+		$mail->Port = 587;
+		$mail->CharSet = "UTF-8";
 
-			$mail = new PHPMailer;
-			$mail->isSMTP();
-			$mail->Host = '';
-			$mail->SMTPAuth = true;
-			$mail->Username = '';
-			$mail->Password = '';
-			$mail->SMTPSecure = 'tls';
-			$mail->Port = 587;
-			$mail->CharSet = "UTF-8";
+		$mail->setFrom('site@gilprodducoes.com.br', 'Gil Produções - Orçamentos');
+		$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');
+		
+		$mail->isHTML(true);
 
-			$mail->setFrom('site@gilprodducoes.com.br', 'Gil Produções - Orçamentos');
-			$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');
-			
-			$mail->isHTML(true);
+		$mail->Subject = $subject;
+		$mail->Body    = $body;
+		$mail->AltBody = $altbody;
 
-			$mail->Subject = $subject;
-			$mail->Body    = $body;
-			$mail->AltBody = $altbody;
+		$sent = 0;
 
-			$sent = 0;
-
-			if(!$mail->send()) {
-			    echo '<!-- Message could not be sent. Mailer Error: ' . $mail->ErrorInfo . '-->';
-			    $sent = 1;
-			} else {
-			    echo '<!-- Message has been sent -->';
-			    $sent = 2;
-			}
+		if(!$mail->send()) {
+		    echo '<!-- Message could not be sent. Mailer Error: ' . $mail->ErrorInfo . '-->';
+		    $sent = 1;
+		} else {
+		    echo '<!-- Message has been sent -->';
+		    $sent = 2;
+		}
 	}
 }
 ?><!DOCTYPE html>

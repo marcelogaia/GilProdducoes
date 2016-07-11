@@ -1,66 +1,71 @@
 <?php
-	$sent = false;
 
-	$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
+$host 		= ""; // Link do host. Ex.: "smtp.gilprodducoes.com.br"
+$usuario 	= ""; // Nome de usuario. Ex.: "site@gilprodducoes.com.br"
+$senha 		= ""; // Senha do usuario. Ex.: "123@Mudar!"
 
-	if($action == "submit"){
+$sent = false;
 
-		require "../includes/phpmailer/PHPMailerAutoload.php";
+$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
 
-		$name	= isset($_REQUEST['name']) ? $_REQUEST['name'] : "";
-		$email 	= isset($_REQUEST['email']) ? $_REQUEST['email'] : "";
-		$phone	= isset($_REQUEST['phone']) ? $_REQUEST['phone'] : "";
-		$company= isset($_REQUEST['company']) ? $_REQUEST['company'] : "";
-		$message= isset($_REQUEST['message']) ? $_REQUEST['message'] : "";
+if($action == "submit"){
 
-		if(($name!="")&&($email!="")&&($phone!="")&&($message!="")){
+	require "../includes/phpmailer/PHPMailerAutoload.php";
 
-			$subject="Mensagem enviada através do formulário de contato Gil Prodducoes";
+	$name	= isset($_REQUEST['name']) ? $_REQUEST['name'] : "";
+	$email 	= isset($_REQUEST['email']) ? $_REQUEST['email'] : "";
+	$phone	= isset($_REQUEST['phone']) ? $_REQUEST['phone'] : "";
+	$company= isset($_REQUEST['company']) ? $_REQUEST['company'] : "";
+	$message= isset($_REQUEST['message']) ? $_REQUEST['message'] : "";
 
-			$body = "<b>Nome:</b> {$name}
-					<br><b>Email:</b> {$email}
-					<br><b>Telefone:</b> {$phone}
-					<br><b>Empresa:</b> {$company}
-					<br><b>Mensagem:</b> {$message}";
+	if(($name!="")&&($email!="")&&($phone!="")&&($message!="")){
 
-			$altbody = "Nome: {$name} \n\r
-						Email: {$email} \n\r
-						Telefone: {$phone} \n\r
-						Empresa: {$company} \n\r
-						Mensagem: {$message}";
+		$subject="Mensagem enviada através do formulário de contato Gil Prodducoes";
 
-			$mail = new PHPMailer;
-			$mail->isSMTP();
-			$mail->Host = '';
-			$mail->SMTPAuth = true;
-			$mail->Username = '';
-			$mail->Password = '';
-			$mail->SMTPSecure = 'tls';
-			$mail->Port = 587;
-			$mail->CharSet = "UTF-8";
+		$body = "<b>Nome:</b> {$name}
+				<br><b>Email:</b> {$email}
+				<br><b>Telefone:</b> {$phone}
+				<br><b>Empresa:</b> {$company}
+				<br><b>Mensagem:</b> {$message}";
 
-			$mail->setFrom('site@gilprodducoes.com.br', 'Gil Produções - Contato');
-			$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');
-			
-			$mail->isHTML(true);
+		$altbody = "Nome: {$name} \n\r
+					Email: {$email} \n\r
+					Telefone: {$phone} \n\r
+					Empresa: {$company} \n\r
+					Mensagem: {$message}";
 
-			$mail->Subject = $subject;
-			$mail->Body    = $body;
-			$mail->AltBody = $altbody;
-			$sent = true;
+		$mail = new PHPMailer;
+		$mail->isSMTP();
+		$mail->Host = $host;
+		$mail->SMTPAuth = true;
+		$mail->Username = $usuario;
+		$mail->Password = $senha;
+		$mail->SMTPSecure = 'tls';
+		$mail->Port = 587;
+		$mail->CharSet = "UTF-8";
 
-			echo '<!-- ';
+		$mail->setFrom('site@gilprodducoes.com.br', 'Gil Produções - Contato');
+		$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');
+		
+		$mail->isHTML(true);
 
-			if(!$mail->send()) {
-			    echo 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
-			    $sent = false;
-			} else {
-			    echo 'Message has been sent';
-			}
+		$mail->Subject = $subject;
+		$mail->Body    = $body;
+		$mail->AltBody = $altbody;
+		$sent = true;
 
-			echo ' -->';
+		echo '<!-- ';
+
+		if(!$mail->send()) {
+		    echo 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
+		    $sent = false;
+		} else {
+		    echo 'Message has been sent';
 		}
+
+		echo ' -->';
 	}
+}
 ?><!DOCTYPE html>
 <html lang="pt">
 <head>
