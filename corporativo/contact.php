@@ -46,7 +46,7 @@ if($action == "submit"){
 
 		$mail->setFrom('site@gilprodducoes.com.br', 'Gil Produções - Contato');
 		$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');
-		
+
 		$mail->isHTML(true);
 
 		$mail->Subject = $subject;
@@ -151,21 +151,21 @@ if($action == "submit"){
 
                     <p>+19 3461.1244</p>
 
-                    <a class="mailto" target="_blank" href="mailto:atendimento@gilprodducoes.com.br">atendimento@gilprodducoes.com.br</a>
-                        
-                    <a class="mapa" href="#contato">ver no mapa</a>
+                    <a class="mailto" target="_blank" href="mailto:contato@gilproducoes.com.br">contato@gilproducoes.com.br</a>
+
+                    <a class="mapa" href="https://www.google.com.br/maps/place/R.+Haiti,+115+-+Jardim+Girassol,+Americana+-+SP,+13465-681/@-22.7433518,-47.3397374,17z/data=!3m1!4b1!4m5!3m4!1s0x94c89bd1e9b16067:0xef616c2a02ee5058!8m2!3d-22.7433518!4d-47.3375487?hl=pt-BR" target="_blank">ver no mapa</a>
                 </article>
                 <article class="col-md-12 col-sm-6 col-xs-12">
                     <h1>Ágil Locações:</h1>
-                    <a class="mailto" target="_blank" href="mailto:locacao@gilprodducoes.com.br">locacao@gilprodducoes.com.br</a>
+                    <a class="mailto" target="_blank" href="mailto:locacao@gilproducoes.com.br">locacao@gilprodducoes.com.br</a>
                 </article>
-                
+
             </div>
         </div>
     </section>
 
     <div id="map"></div>
-    
+
     <footer>
         <a href="#">Voltar ao topo</a>
         <ul class="social">
@@ -176,7 +176,7 @@ if($action == "submit"){
             ><li><a href="https://plus.google.com/111242501011637553447/posts" target="_blank" class="btn google">google+</a></li>
         </ul>
         <div class="container">
-            <p>©2016. <a href="#">Gil prodduções S.A.</a> Todos os direitos reservados </p>
+            <p>©2016. <a href="#">Iatarola e Cia LTDA.</a> Todos os direitos reservados </p>
             <a href="#">MP</a>
         </div>
     </footer>
@@ -186,7 +186,7 @@ if($action == "submit"){
 
     <script src="js/jquery-ui.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-    
+
     <script>
 
         $(document).ready(function(){
@@ -267,14 +267,14 @@ if($action == "submit"){
 
 				if(status == 'open'){
 					img.animate(
-	                    {right: -120}, 
+	                    {right: -120},
 	                    {duration: 400,easing:'easeInOutBack',done: function(){
 	        				$("#social-link").attr('src',"media/img/social-link2-gray.png");
 	                    }});
 					status = 'closed';
 				} else {
 					img.animate(
-	                    {right: -10}, 
+	                    {right: -10},
 	                    {duration: 400,easing:'easeInOutBack',done: function(){
 			        		$("#social-link").attr('src',"media/img/social-link-gray.png");
 	                    }});
@@ -312,8 +312,8 @@ if($action == "submit"){
 
 			map = new google.maps.Map(document.getElementById('map'), {
 				center: myLatLng,
-				zoom: 17,	
-			    
+				zoom: 17,
+
 			    scrollwheel: false,
 			    navigationControl: false,
 			    mapTypeControl: false,
@@ -327,7 +327,7 @@ if($action == "submit"){
 			    }
 			});
 
-			var mapType = new google.maps.StyledMapType(stylez, { name:"Grayscale" });    
+			var mapType = new google.maps.StyledMapType(stylez, { name:"Grayscale" });
 			map.mapTypes.set('tehgrayz', mapType);
 			map.setMapTypeId('tehgrayz');
 
@@ -339,6 +339,6 @@ if($action == "submit"){
 		}
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-udQr1p64s6iFRWcN0pjTIbxGBtXeo6Y&callback=initMap" async defer></script>
-    
+
 </body>
 </html>

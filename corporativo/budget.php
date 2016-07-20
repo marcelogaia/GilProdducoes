@@ -71,7 +71,7 @@ if($action == "submit"){
 
 		$mail->setFrom('site@gilprodducoes.com.br', 'Gil Produções - Orçamentos');
 		$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');
-		
+
 		$mail->isHTML(true);
 
 		$mail->Subject = $subject;
@@ -150,7 +150,7 @@ if($action == "submit"){
 		<area shape="circle" coords="17,24,15" class="close" href="javascript:void(0)" alt="close">
 		<area shape="rect" coords="38,0,156,47" href="../social" alt="Social">
 	</map>
-	
+
 	<section id="title">
 		<div class="container">
 			<header>
@@ -187,7 +187,7 @@ if($action == "submit"){
 							<input type="text" id="phone" name="phone">
 						</div>
 						<div class="col-sm-6">
-							<label for="company">Empresa / Cargo</label>
+							<label for="company">Empresa</label>
 							<input type="text" id="company" name="company">
 						</div>
 					</div>
@@ -202,7 +202,7 @@ if($action == "submit"){
 			<div class="container">
 				<p class="type-choice">Escolha uma das opções abaixo, preencha os dados e envie o formulário.</p>
 			</div>
-			
+
 			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 				<fieldset id="recording" class="panel" form="budget" disabled>
@@ -210,7 +210,7 @@ if($action == "submit"){
 	    				<legend role="tab" id="headingRecording">
 	    					<h3>
 	    						<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseRecording" aria-expanded="false" aria-controls="collapseRecording" class="collapsed">
-		    						Gravação de evento
+		    						Produção de eventos
 		    						<span class="glyphicon glyphicon-menu-down"></span>
 		    						<span class="glyphicon glyphicon-menu-up"></span>
 								</a>
@@ -367,7 +367,7 @@ if($action == "submit"){
 	    				</div>
     				</div>
 				</fieldset>
-				
+
 			</div>
 			<button type="submit" class="enviar"><!-- --></button>
 		</form>
@@ -382,7 +382,7 @@ if($action == "submit"){
             ><li><a href="https://plus.google.com/111242501011637553447/posts" target="_blank" class="btn google">google+</a></li>
         </ul>
         <div class="container">
-            <p>©2016. <a href="#">Gil prodduções S.A.</a> Todos os direitos reservados </p>
+            <p>©2016. <a href="#">Iatarola e Cia LTDA.</a> Todos os direitos reservados </p>
             <a href="#">MP</a>
         </div>
     </footer>
@@ -390,11 +390,11 @@ if($action == "submit"){
     <script src="js/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
     <script src="js/jquery-ui.min.js"></script>
-	
+
     <!-- Latest compiled and minified JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
-    
+
     <script>
     $(function() {
 	    (function($) {
@@ -434,14 +434,14 @@ if($action == "submit"){
 
 					if(status == 'open'){
 						img.animate(
-		                    {right: -120}, 
+		                    {right: -120},
 		                    {duration:400,easing:'easeInOutBack',done:function(){
 		        				$("#social-link").attr('src',"media/img/social-link2.png");
 		                    }});
 						status = 'closed';
 					} else {
 						img.animate(
-		                    {right: -10}, 
+		                    {right: -10},
 		                    {duration:400,easing:'easeInOutBack',done:function(){
 				        		$("#social-link").attr('src',"media/img/social-link.png");
 		                    }});
