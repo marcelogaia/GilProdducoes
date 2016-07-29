@@ -60,6 +60,7 @@ if($action == "submit"){
 
 
 			$mail = new PHPMailer;
+			$mail->SMTPDebug = 4;
 			$mail->isSMTP();
 			$mail->Host = $host;
 			$mail->SMTPAuth = true;
@@ -69,23 +70,27 @@ if($action == "submit"){
 			$mail->Port = 587;
 			$mail->CharSet = "UTF-8";
 
-			$mail->setFrom('site@gilprodducoes.com.br', 'Gil Produções - Orçamentos');
-			$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');
+			$mail->setFrom($usuario, 'Gil Produções (Social) - Orçamentos');
+			$mail->addAddress('gilprodducoes1@gmail.com', 'Gil Produções');
 			
+
 			$mail->isHTML(true);
 
 			$mail->Subject = $subject;
 			$mail->Body    = $body;
 			$mail->AltBody = $altbody;
 
-			$sent = 0;
+			echo '<!-- ';
 
 			if(!$mail->send()) {
-			    echo '<!-- Message could not be sent. Mailer Error: ' . $mail->ErrorInfo . '-->';
+			    echo 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
 			} else {
-			    echo '<!-- Message has been sent -->';
-			    $sent = true;
+			    echo 'Message has been sent';
+				$sent = true;
 			}
+			
+			echo ' -->';
+
 	}
 }
 ?>

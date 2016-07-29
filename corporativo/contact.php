@@ -35,6 +35,7 @@ if($action == "submit"){
 					Mensagem: {$message}";
 
 		$mail = new PHPMailer;
+		$mail->SMTPDebug = 4;
 		$mail->isSMTP();
 		$mail->Host = $host;
 		$mail->SMTPAuth = true;
@@ -44,8 +45,8 @@ if($action == "submit"){
 		$mail->Port = 587;
 		$mail->CharSet = "UTF-8";
 
-		$mail->setFrom('site@gilprodducoes.com.br', 'Gil Produções - Contato');
-		$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');
+		$mail->setFrom($usuario, 'Gil Produções (Corporativo) - Contato');
+		$mail->addAddress('gilprodducoes1@gmail.com', 'Gil Produções');
 
 		$mail->isHTML(true);
 
@@ -59,7 +60,7 @@ if($action == "submit"){
 		    echo 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
 		} else {
 		    echo 'Message has been sent';
-				$sent = true;
+			$sent = true;
 		}
 
 		echo ' -->';
@@ -135,7 +136,8 @@ if($action == "submit"){
                 <p class="col-md-12">Venha fazer uma visita ou entre em contato conosco. Teremos um prazer enorme.</p>
             </header>
 
-            <form action="contato" class="col-md-9 col-sm-12">
+            <form action="contato" method="post" enctype="multipart/form-data" class="col-md-9 col-sm-12">
+                <input type="hidden" name="action" value="submit">
                 <input type="text" name="name" placeholder="Nome" class="col-xs-12">
                 <input type="text" name="email" placeholder="Email" class="col-xs-12">
                 <input type="text" name="phone" placeholder="Telefone" class="col-xs-12">

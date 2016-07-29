@@ -4,9 +4,7 @@ $host 		= ""; // Link do host. Ex.: "smtp.gilprodducoes.com.br"
 $usuario 	= ""; // Nome de usuario. Ex.: "site@gilprodducoes.com.br"
 $senha 		= ""; // Senha do usuario. Ex.: "123@Mudar!"
 
-
 $sent = false;
-
 
 $action 	= isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
 
@@ -14,14 +12,26 @@ if($action == "submit"){
 
 	require "../includes/phpmailer/PHPMailerAutoload.php";
 
-	$name		= isset($_REQUEST['name']) ? $_REQUEST['name'] : "";
-	$email 		= isset($_REQUEST['email']) ? $_REQUEST['email'] : "";
-	$phone		= isset($_REQUEST['phone']) ? $_REQUEST['phone'] : "";
-	$countrycity= isset($_REQUEST['country-city']) ? $_REQUEST['country-city'] : "";
-	$howfoundus	= isset($_REQUEST['howfoundus']) ? $_REQUEST['howfoundus'] : "";
-	$eventdate	= isset($_REQUEST['event-date']) ? $_REQUEST['event-date'] : "";
-	$eventtype	= isset($_REQUEST['event-type']) ? $_REQUEST['event-type'] : "";
-	$eventtypeother	= isset($_REQUEST['event-type-other']) ? $_REQUEST['event-type-other'] : "";
+	$name					= isset($_REQUEST['name']) ? $_REQUEST['name'] : -1;
+	$email					= isset($_REQUEST['email']) ? $_REQUEST['email'] : -1;
+	$phone					= isset($_REQUEST['phone']) ? $_REQUEST['phone'] : -1;
+	$company				= isset($_REQUEST['company']) ? $_REQUEST['company'] : -1;
+	$howfind				= isset($_REQUEST['howfind']) ? $_REQUEST['howfind'] : -1;
+	$recordingwhen			= isset($_REQUEST['recording-when']) ? $_REQUEST['recording-when'] : -1;
+	$recordingwhere			= isset($_REQUEST['recording-where']) ? $_REQUEST['recording-where'] : -1;
+	$recordingtransmition	= isset($_REQUEST['recording-transmition']) ? $_REQUEST['recording-transmition'] : -1;
+	$recordingdelirery		= isset($_REQUEST['recording-delirery']) ? $_REQUEST['recording-delirery'] : -1;
+	$productionworktype		= isset($_REQUEST['production-worktype']) ? $_REQUEST['production-worktype'] : -1;
+	$productionduration		= isset($_REQUEST['production-duration']) ? $_REQUEST['production-duration'] : -1;
+	$productionscript		= isset($_REQUEST['production-script']) ? $_REQUEST['production-script'] : -1;
+	$productionfeeswhich	= isset($_REQUEST['production-fees-which']) ? $_REQUEST['production-fees-which'] : -1;
+	$productionfees			= isset($_REQUEST['production-fees']) ? $_REQUEST['production-fees'] : -1;
+    $productionlocution 	= isset($_REQUEST['production-locution']) ? $_REQUEST['production-locution'] : -1;
+    $productionlocutionwhich= isset($_REQUEST['production-locution-which']) ? $_REQUEST['production-locution-which'] : -1;
+    $productiondeadlinewhich= isset($_REQUEST['production-deadline-which']) ? $_REQUEST['production-deadline-which'] : -1;
+    $productionanimation 	= isset($_REQUEST['production-animation']) ? $_REQUEST['production-animation'] : -1;
+    $productionair 			= isset($_REQUEST['production-air']) ? $_REQUEST['production-air'] : -1;
+    $productionairwhich 	= isset($_REQUEST['production-air-which']) ? $_REQUEST['production-air-which'] : -1;
 
 	$equiptext = "<ul>";
 
@@ -40,26 +50,64 @@ if($action == "submit"){
 		$subject="Mensagem enviada através do formulário de orcamento Gil Prodducoes";
 
 		$body = "<b>Nome:</b> {$name}
-				<br><b>Email:</b> {$email}
-				<br><b>Telefone:</b> {$phone}
-				<br><b>País/Cidade:</b> {$countrycity}
-				<br><b>Como nos encontrou?:</b> {$howfoundus}
-				<br><b>Quando será a data do evento?:</b> {$eventdate}
-				<br><b>Que tipo de evento será realizado?:</b> {$eventtype}
-				<br><b>Se escolheu 'outro', descreva qual:</b> {$eventtypeother}
-				<br><b>Quais de nossos produtos e serviços gostaria de contar com?:</b><br> {$equiptext}";
+				<br><br><b>Email:</b> {$email}
+				<br><br><b>Telefone:</b> {$phone}
+				<br><br><b>Empresa:</b> {$company}
+				<br><br><b>Como nos encontrou?:</b> {$howfind}";
+		
 
 		$altbody = "Nome: {$name}
 				\r\nEmail: {$email}
 				\r\nTelefone: {$phone}
-				\r\nPaís/Cidade: {$countrycity}
-				\r\nComo nos encontrou?: {$howfoundus}
-				\r\nQuando será a data do evento?: {$eventdate}
-				\r\nQue tipo de evento será realizado?: {$eventtype}
-				\r\nSe escolheu 'outro', descreva qual: {$eventtypeother}
-				\r\nQuais de nossos produtos e serviços gostaria de contar com?:\r\n {$equiptext}";
+				\r\nEmpresa: {$company}
+				\r\nComo nos encontrou?: {$howfind}";
+
+		if($recordingwhen != -1 && $recordingwhere != -1){
+			$body .= "<br><br><b><u>PRODUÇÃO DE EVENTOS</u></b>
+				<br><br><b>Quando será a data do evento?:</b> {$recordingwhen}
+				<br><br><b>Onde será o local do evento?:</b> {$recordingwhere}
+				<br><br><b>Transmissão simultânea?:</b> {$recordingtransmition}
+				<br><br><b>Como deseja que seja feita a entrega do material?:</b> {$recordingdelirery}
+			";
+
+			$altbody .= "\r\nPRODUÇÃO DE EVENTOS
+				\r\nQuando será a data do evento?: {$recordingwhen}
+				\r\nOnde será o local do evento?: {$recordingwhere}
+				\r\nTransmissão simultânea?: {$recordingtransmition}
+				\r\nComo deseja que seja feita a entrega do material?: {$recordingdelirery}";
+
+		} else if($productionworktype != -1 && $productionduration != -1) {
+			$body .= "<br><br><br><b><u>PRODUÇÃO DE VÍDEOS</u></b>
+				<br><br><b>Qual tipo de trabalho procura?:</b> {$productionworktype}
+				<br><br><b>Duração do Vídeo (em minutos):</b> {$productionduration}
+				<br><br><b>Nós iremos desenvolver o roteiro?:</b> {$productionscript}
+				<br><br><b>Haverão diárias de gravação?:</b> {$productionfees}
+				<br>{$productionfeeswhich}
+				<br><br><b>Havera locução?:</b> {$productionlocution}
+				<br>{$productionlocutionwhich}
+				<br><br><b>Qual o deadline?:</b> {$productiondeadlinewhich}
+				<br><br><b>O projeto requer animações?:</b> {$productionanimation}
+				<br><br><b>Serão necessárias gravações aéreas?:</b> {$productionair}
+				<br>{$productionairwhich}
+				";
+
+			$altbody .= "\r\nPRODUÇÃO DE VÍDEOS
+				\r\nQual tipo de trabalho procura?:</b> {$productionworktype}
+				\r\nDuração do Vídeo (em minutos):</b> {$productionduration}
+				\r\nNós iremos desenvolver o roteiro?:</b> {$productionscript}
+				\r\nHaverão diárias de gravação?:</b> {$productionfees}
+				\r\n{$productionfeeswhich}
+				\r\nHavera locução?:</b> {$productionlocution}
+				\r\n{$productionlocutionwhich}
+				\r\nQual o deadline?:</b> {$productiondeadlinewhich}
+				\r\nO projeto requer animações?:</b> {$productionanimation}
+				\r\nSerão necessárias gravações aéreas?:</b> {$productionair}
+				\r\n{$productionairwhich}";
+		}
+
 
 		$mail = new PHPMailer;
+		$mail->SMTPDebug = 4;
 		$mail->isSMTP();
 		$mail->Host = $host;
 		$mail->SMTPAuth = true;
@@ -69,8 +117,8 @@ if($action == "submit"){
 		$mail->Port = 587;
 		$mail->CharSet = "UTF-8";
 
-		$mail->setFrom('site@gilprodducoes.com.br', 'Gil Produções - Orçamentos');
-		$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');
+		$mail->setFrom($usuario, 'Gil Produções (Corporativo) - Orçamentos');
+		$mail->addAddress('gilprodducoes1@gmail.com', 'Gil Produções');
 
 		$mail->isHTML(true);
 
@@ -78,14 +126,16 @@ if($action == "submit"){
 		$mail->Body    = $body;
 		$mail->AltBody = $altbody;
 
-		$sent = 0;
+		echo '<!-- ';
 
 		if(!$mail->send()) {
-		    echo '<!-- Message could not be sent. Mailer Error: ' . $mail->ErrorInfo . '-->';
+		    echo 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
 		} else {
-		    echo '<!-- Message has been sent -->';
-		    $sent = true;
+		    echo 'Message has been sent';
+			$sent = true;
 		}
+
+		echo ' -->';
 	}
 }
 ?><!DOCTYPE html>
@@ -166,6 +216,7 @@ if($action == "submit"){
 	</section>
 	<section id="form">
 		<form action="#" method="post" enctype="multipart/form-data" id="budget">
+            <input type="hidden" name="action" value="submit">
 			<fieldset id="details" form="budget">
 				<div class="container">
 					<legend><h3>Detalhes de Contato</h3></legend>
@@ -319,49 +370,49 @@ if($action == "submit"){
 							</div>
 							<div class="row">
 								<div class="col-sm-12">
-									<label for="production-fees">Havera locução?</label>
+									<label for="production-locution">Havera locução?</label>
 								</div>
 								<div class="col-xs-6">
-									<input type="radio" name="production-fees" value="Sim" id="production-fees-yes"><label for="production-fees-yes">Sim</label>
+									<input type="radio" name="production-locution" value="Sim" id="production-locution-yes"><label for="production-locution-yes">Sim</label>
 								</div>
 								<div class="col-xs-6">
-									<input type="radio" name="production-fees" value="Não" id="production-fees-no"><label for="production-fees-no">Não</label>
+									<input type="radio" name="production-locution" value="Não" id="production-locution-no"><label for="production-locution-no">Não</label>
 								</div>
 								<div class="col-sm-12">
-									<input type="text" id="production-fees-which" name="production-fees-which" placeholder="Se sim, quais idiomas?">
+									<input type="text" id="production-locution-which" name="production-locution-which" placeholder="Se sim, quais idiomas?">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-sm-12">
-									<label for="production-fees">Qual o deadline?</label>
+									<label for="production-deadline">Qual o deadline?</label>
 								</div>
 								<div class="col-sm-12">
-									<input type="text" id="production-fees-which" name="production-fees-which">
+									<input type="text" id="production-deadline-which" name="production-deadline-which">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-sm-12">
-									<label for="production-fees">O projeto requer animações?</label>
+									<label for="production-animation">O projeto requer animações?</label>
 								</div>
 								<div class="col-xs-6">
-									<input type="radio" name="production-fees" value="Sim" id="production-fees-yes"><label for="production-fees-yes">Sim</label>
+									<input type="radio" name="production-animation" value="Sim" id="production-animation-yes"><label for="production-animation-yes">Sim</label>
 								</div>
 								<div class="col-xs-6">
-									<input type="radio" name="production-fees" value="Não" id="production-fees-no"><label for="production-fees-no">Não</label>
+									<input type="radio" name="production-animation" value="Não" id="production-animation-no"><label for="production-animation-no">Não</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-sm-12">
-									<label for="production-fees">Serão necessárias gravações aéreas?</label>
+									<label for="production-air">Serão necessárias gravações aéreas?</label>
 								</div>
 								<div class="col-xs-6">
-									<input type="radio" name="production-fees" value="Sim" id="production-fees-yes"><label for="production-fees-yes">Sim</label>
+									<input type="radio" name="production-air" value="Sim" id="production-air-yes"><label for="production-air-yes">Sim</label>
 								</div>
 								<div class="col-xs-6">
-									<input type="radio" name="production-fees" value="Não" id="production-fees-no"><label for="production-fees-no">Não</label>
+									<input type="radio" name="production-air" value="Não" id="production-air-no"><label for="production-air-no">Não</label>
 								</div>
 								<div class="col-sm-12">
-									<input type="text" id="production-fees-which" name="production-fees-which" placeholder="Se sim, quais locais?">
+									<input type="text" id="production-air-which" name="production-air-which" placeholder="Se sim, quais locais?">
 								</div>
 							</div>
 	    				</div>
