@@ -515,6 +515,48 @@ section {
 	}
 }
 
+#clientes {
+	.client-slider {
+		width: 100%;
+		min-height: 10px;
+		margin-bottom: 40px;
+
+		div {
+			overflow: hidden;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		.slick-arrow {
+		    top: calc(50% - 30px);
+		    font-family: 'Glyphicons Halflings';
+		    z-index: 99;
+			background: transparent;
+			border: 0;
+			width: 17px;
+			overflow: hidden;
+			font-size: 20px;
+		}
+
+		> .slick-list {
+			display: inline-block;
+			vertical-align: middle;
+			position: relative;
+			width: calc(100% - 45px);
+		}
+
+		.slick-prev.slick-arrow:before {
+			content: "\e257";
+		}
+
+		.slick-next.slick-arrow:before {
+			content: "\e258";				
+		}
+	}
+}
+
 #documentarios {
 	background-color: #3f3f3f;
 	color: #5e5d5d;

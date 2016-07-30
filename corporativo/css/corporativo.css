@@ -346,6 +346,33 @@ section header {
   #agil img {
     width: 90%; }
 
+#clientes .client-slider {
+  width: 100%;
+  min-height: 10px;
+  margin-bottom: 40px; }
+  #clientes .client-slider div {
+    overflow: hidden; }
+    #clientes .client-slider div img {
+      width: 100%; }
+  #clientes .client-slider .slick-arrow {
+    top: calc(50% - 30px);
+    font-family: 'Glyphicons Halflings';
+    z-index: 99;
+    background: transparent;
+    border: 0;
+    width: 17px;
+    overflow: hidden;
+    font-size: 20px; }
+  #clientes .client-slider > .slick-list {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    width: calc(100% - 45px); }
+  #clientes .client-slider .slick-prev.slick-arrow:before {
+    content: "\e257"; }
+  #clientes .client-slider .slick-next.slick-arrow:before {
+    content: "\e258"; }
+
 #documentarios {
   background-color: #3f3f3f;
   color: #5e5d5d;
