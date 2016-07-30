@@ -71,7 +71,7 @@ if($action == "submit"){
 			$mail->CharSet = "UTF-8";
 
 			$mail->setFrom($usuario, 'Gil Produções (Social) - Orçamentos');
-			$mail->addAddress('gilprodducoes1@gmail.com', 'Gil Produções');
+			$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');
 			
 
 			$mail->isHTML(true);
@@ -187,7 +187,7 @@ if($action == "submit"){
 					<li><a href="contato">Contato</a></li>
 					<li><a href="agil" class="red">Ágil Locações</a></li>
 					<li class="news">
-						<form action="#" method="post">
+						<form class="news-box">
 							<img src="img/envelope-icon.png" alt="">
 							<input type="text" placeholder="email">
 							<button type="submit">OK</button>
@@ -297,27 +297,27 @@ if($action == "submit"){
 		</div> <!-- /container -->
 
 		<footer class="">
-		      <ul class="container">
-		  			<li class="col-xs-2 col-sm-4">
-		  				<a href="javascript:void()" class="bt-news"><img src="img/bt-newsletter.png" /></a>
-		  				<div class="news-box" style="display: none;">
-		  					<input type="text" placeholder="Digite seu e-mail" class="type-mail" />
-		  					<input type="button" value="Ok" class="send-mail" />
-		  				</div>
-		  			</li>
+			<ul class="container">
+				<li class="col-xs-2 col-sm-4">
+					<a href="javascript:void()" class="bt-news"><img src="img/bt-newsletter.png" /></a>
+					<form class="news-box" style="display: none;">
+						<input type="text" placeholder="Digite seu e-mail" class="type-mail" />
+						<button type="submit" class="send-mail">Ok</button>
+					</form>
+				</li>
 				<li class="col-xs-3 col-sm-4">
 					<center><a href="https://vimeo.com/153258664" class="bt-demo-reel">DEMO REEL</a></center>
 				</li>
-					<li class="col-xs-7 col-sm-4">
-		  				<ul class="social">
-		  					<li id="facebook"><a href="https://www.facebook.com/Gil-Produ%C3%A7%C3%B5es-1485454868436485/?fref=ts" target="_blank">Facebook</a></li>
-		  					<li id="insta"><a href="https://www.instagram.com/gilprodducoes_/" target="_blank">Twitter</a></li>
-		  					<li id="youtube"><a href="https://www.youtube.com/channel/UCE8CGgt9Hf_nPuUNLrDJI3g" target="_blank">Instagram</a></li>
-		  					<li id="plus"><a href="https://plus.google.com/111242501011637553447/posts" target="_blank">Google Plus</a></li>
-		  					<li id="vimeo"><a href="https://vimeo.com/gilproducoes/videos" target="_blank">Pinterest</a></li>
-		  				</ul>
-		  			</li>
-		  		</ul>
+				<li class="col-xs-7 col-sm-4">
+					<ul class="social">
+						<li id="facebook"><a href="https://www.facebook.com/Gil-Produ%C3%A7%C3%B5es-1485454868436485/?fref=ts" target="_blank">Facebook</a></li>
+						<li id="insta"><a href="https://www.instagram.com/gilprodducoes_/" target="_blank">Twitter</a></li>
+						<li id="youtube"><a href="https://www.youtube.com/channel/UCE8CGgt9Hf_nPuUNLrDJI3g" target="_blank">Instagram</a></li>
+						<li id="plus"><a href="https://plus.google.com/111242501011637553447/posts" target="_blank">Google Plus</a></li>
+						<li id="vimeo"><a href="https://vimeo.com/gilproducoes/videos" target="_blank">Pinterest</a></li>
+					</ul>
+				</li>
+			</ul>
 		</footer>
 		<div class="modal fade" id="video-modal" tabindex="-1" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
 			<div class="modal-dialog">
@@ -384,7 +384,32 @@ return false;
 		$(document).ready(function(){
 			$(".bt-news").click(function(){
 				$(".news-box").animate({width: 'toggle'});
-			});
+    		});
+
+			$(".news-box").submit(function(){
+				var input = $(this).find('input')
+				var data = {
+					email : input.val()
+				};
+				$.post(
+					'newsletter.php',
+					data,
+					function(data){
+						if(data == "SUCCESS"){
+							alert("Muito obrigado! E-mail cadastrado com sucesso.");
+							if($(this).parent().hasClass('newsletter'))
+								$(".news-box").animate({width: 'toggle'});
+							else {
+								input.val("");
+							}
+						} else {
+							alert("Erro ao cadastrar e-mail, verifique o e-mail digitado. Caso o problema persista, entre em contato com o administrador do sistema.");
+						}
+					}
+				);
+				
+				return false;
+    		});
 		});
 	</script>
 </body>

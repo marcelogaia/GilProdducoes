@@ -46,7 +46,7 @@ if($action == "submit"){
 		$mail->CharSet = "UTF-8";
 
 		$mail->setFrom($usuario, 'Gil Produções (Social) - Contato');
-		$mail->addAddress('gilprodducoes1@gmail.com', 'Gil Produções');
+		$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');
 
 		$mail->isHTML(true);
 
@@ -162,7 +162,7 @@ if($action == "submit"){
 					<li><a href="contato">Contato</a></li>
 					<li><a href="agil" class="red">Ágil Locações</a></li>
 					<li class="news">
-						<form action="#" method="post">
+						<form class="news-box">
 							<img src="img/envelope-icon.png" alt="">
 							<input type="text" placeholder="email">
 							<button type="submit">OK</button>
@@ -246,10 +246,10 @@ if($action == "submit"){
       	<ul class="container">
   			<li class="col-xs-2 col-sm-4">
   				<a href="javascript:void()" class="bt-news"><img src="img/bt-newsletter.png" /></a>
-  				<div class="news-box" style="display: none;">
+  				<form class="news-box" style="display: none;">
   					<input type="text" placeholder="Digite seu e-mail" class="type-mail" />
-  					<input type="button" value="Ok" class="send-mail" />
-  				</div>
+  					<button type="submit" class="send-mail">Ok</button>
+  				</form>
   			</li>
 			<li class="col-xs-5 col-sm-4">
 				<a href="https://vimeo.com/153258664" class="bt-demo-reel">DEMO REEL</a>
@@ -329,7 +329,32 @@ return false;
 		$(document).ready(function(){
 			$(".bt-news").click(function(){
 				$(".news-box").animate({width: 'toggle'});
-			});
+    		});
+
+			$(".news-box").submit(function(){
+				var input = $(this).find('input')
+				var data = {
+					email : input.val()
+				};
+				$.post(
+					'newsletter.php',
+					data,
+					function(data){
+						if(data == "SUCCESS"){
+							alert("Muito obrigado! E-mail cadastrado com sucesso.");
+							if($(this).parent().hasClass('newsletter'))
+								$(".news-box").animate({width: 'toggle'});
+							else {
+								input.val("");
+							}
+						} else {
+							alert("Erro ao cadastrar e-mail, verifique o e-mail digitado. Caso o problema persista, entre em contato com o administrador do sistema.");
+						}
+					}
+				);
+				
+				return false;
+    		});
 		});
 	</script>
 </body>

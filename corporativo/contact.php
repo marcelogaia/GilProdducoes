@@ -12,6 +12,7 @@ if($action == "submit"){
 
 	require "../includes/phpmailer/PHPMailerAutoload.php";
 
+	$from	= isset($_REQUEST['from']) ? $_REQUEST['from'] : "";
 	$name	= isset($_REQUEST['name']) ? $_REQUEST['name'] : "";
 	$email 	= isset($_REQUEST['email']) ? $_REQUEST['email'] : "";
 	$phone	= isset($_REQUEST['phone']) ? $_REQUEST['phone'] : "";
@@ -46,7 +47,7 @@ if($action == "submit"){
 		$mail->CharSet = "UTF-8";
 
 		$mail->setFrom($usuario, 'Gil Produções (Corporativo) - Contato');
-		$mail->addAddress('gilprodducoes1@gmail.com', 'Gil Produções');
+		$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');
 
 		$mail->isHTML(true);
 
@@ -93,7 +94,12 @@ if($action == "submit"){
     </head>
 <body role="document" class="contact">
 <?php if($sent){ ?>
-	<script>alert('Obrigado por entrar em contato. Em breve retornaremos a sua mensagem!');</script>
+	<script>
+		alert('Obrigado por entrar em contato. Em breve retornaremos a sua mensagem!');
+<?php if($from == 'index'){ ?>
+		window.location.href = './#contato';
+<?php } ?>
+	</script>
 <?php } ?>
     <header class="top">
         <nav id="menu" class="navbar navbar-inverse">
@@ -133,7 +139,7 @@ if($action == "submit"){
         <div class="container">
             <header class="col-md-12">
                 <h1 class="col-md-12">Fale Conosco</h1>
-                <p class="col-md-12">Venha fazer uma visita ou entre em contato conosco. Teremos um prazer enorme.</p>
+                <p class="col-md-12">Venha fazer uma visita ou entre em contato conosco.</p>
             </header>
 
             <form action="contato" method="post" enctype="multipart/form-data" class="col-md-9 col-sm-12">
@@ -155,7 +161,7 @@ if($action == "submit"){
 
                     <a class="mailto" target="_blank" href="mailto:contato@gilproducoes.com.br">contato@gilproducoes.com.br</a>
 
-                    <a class="mapa" href="https://www.google.com.br/maps/place/R.+Haiti,+115+-+Jardim+Girassol,+Americana+-+SP,+13465-681/@-22.7433518,-47.3397374,17z/data=!3m1!4b1!4m5!3m4!1s0x94c89bd1e9b16067:0xef616c2a02ee5058!8m2!3d-22.7433518!4d-47.3375487?hl=pt-BR" target="_blank">ver no mapa</a>
+                    <a class="mapa" href="https://www.google.com.br/maps/place/R.+Haiti,+115+-+Jardim+Girassol,+Americana+-+SP,+13465-681/@-22.7433518,-47.3397374,17z/data=!3m1!4b1!4m5!3m4!1s0x94c89bd1e9b16067:0xef616c2a02ee5058!8m2!3d-22.7433518!4d-47.3375487?hl=pt-BR" target="_blank" style="color: white;">ver no mapa</a>
                 </article>
                 <article class="col-md-12 col-sm-6 col-xs-12">
                     <h1>Ágil Locações:</h1>

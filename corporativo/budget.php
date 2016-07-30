@@ -118,7 +118,7 @@ if($action == "submit"){
 		$mail->CharSet = "UTF-8";
 
 		$mail->setFrom($usuario, 'Gil Produções (Corporativo) - Orçamentos');
-		$mail->addAddress('gilprodducoes1@gmail.com', 'Gil Produções');
+		$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');
 
 		$mail->isHTML(true);
 

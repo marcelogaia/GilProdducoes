@@ -579,7 +579,7 @@ footer .news-box {display: block; float: left; opacity: 0.7; overflow: hidden; w
 
 footer .news-box input.type-mail {display: block; float: left; background: #000000; padding: 11px 10px 10px 10px; border-right: 1px solid #ffffff; border-left: 1px solid #ffffff; border-bottom: none; border-top: none; color: #ffffff;}
 
-footer .news-box input.send-mail {display: block; float: left; background: #000000; padding: 11px 10px 10px 10px; border-right: 1px solid #ffffff; border-left: none; border-bottom: none; border-top: none; color: #ffffff;}
+footer .news-box .send-mail {display: block; float: left; background: #000000; padding: 11px 10px 10px 10px; border-right: 1px solid #ffffff; border-left: none; border-bottom: none; border-top: none; color: #ffffff;}
 
 footer .controls {
 	padding-top: 9px;
