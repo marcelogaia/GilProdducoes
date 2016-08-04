@@ -1,7 +1,7 @@
 <?php
 
 $host 		= ""; // Link do host. Ex.: "smtp.gilprodducoes.com.br"
-$usuario 	= ""; // Nome de usuario. Ex.: "site@gilprodducoes.com.br"
+$usuario 	= ""; // Nome de usuario. Ex.: "site@gilproducoes.com.br"
 $senha 		= ""; // Senha do usuario. Ex.: "123@Mudar!"
 
 $sent = false;

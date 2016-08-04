@@ -1,7 +1,7 @@
 <?php
 
 $host 		= ""; // Link do host. Ex.: "smtp.gilprodducoes.com.br"
-$usuario 	= ""; // Nome de usuario. Ex.: "site@gilprodducoes.com.br"
+$usuario 	= ""; // Nome de usuario. Ex.: "site@gilproducoes.com.br"
 $senha 		= ""; // Senha do usuario. Ex.: "123@Mudar!"
 
 $sent = false;
@@ -29,7 +29,7 @@ $mail->Port = 587;
 $mail->CharSet = "UTF-8";
 
 $mail->setFrom($usuario, 'Gil Produções (Social) - Contato');
-$mail->addAddress('contato@gilprodducoes.com.br', 'Gil Produções');
+$mail->addAddress('contato@gilproducoes.com.br', 'Gil Produções');
 
 $mail->isHTML(true);
 

@@ -1,7 +1,7 @@
 <?php
 
 $host 		= ""; // Link do host. Ex.: "smtp.gilprodducoes.com.br"
-$usuario 	= ""; // Nome de usuario. Ex.: "site@gilprodducoes.com.br"
+$usuario 	= ""; // Nome de usuario. Ex.: "site@gilproducoes.com.br"
 $senha 		= ""; // Senha do usuario. Ex.: "123@Mudar!"
 
 $sent = false;
@@ -165,7 +165,7 @@ if($action == "submit"){
                 </article>
                 <article class="col-md-12 col-sm-6 col-xs-12">
                     <h1>Ágil Locações:</h1>
-                    <a class="mailto" target="_blank" href="mailto:locacao@gilproducoes.com.br">locacao@gilprodducoes.com.br</a>
+                    <a class="mailto" target="_blank" href="mailto:locacao@gilproducoes.com.br">locacao@gilproducoes.com.br</a>
                 </article>
 
             </div>
